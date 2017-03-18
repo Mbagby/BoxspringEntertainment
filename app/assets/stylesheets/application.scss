@@ -135,9 +135,9 @@ body { position:relative;
 	margin-top: 10px;
 	color: #7C7D7E;
 	font-size: 25px;
-	a{
-		text-decoration-style: none;
-	}
+}
+a, a:link{
+	text-decoration: none;
 }
 #logo{
 	display: block;
