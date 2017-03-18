@@ -6,12 +6,12 @@ class CreateQuizzes < ActiveRecord::Migration
       t.integer :series_id
       t.integer :topic_id
       t.integer :category_id
-      t.text :title
+      t.string :title
       t.text :description
-      t.text :icon
+      t.string :icon
       t.integer :score
-      t.text :snap_shot
-      t.text :answer
+      t.string :snap_shot
+      t.string :answer
       t.integer :correctness
       t.timestamps null: false
     end

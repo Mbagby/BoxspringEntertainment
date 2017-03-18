@@ -1,8 +1,12 @@
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+p "creating active admin user ----->"
+admin = AdminUser.find_by(email:"admin@madeline.com")
+AdminUser.create!(email:"admin@madeline.com", password:"admin123", password_confirmation:"admin123") unless admin.present?
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
-p "creating testing user"
+p "creating testing user ----->"
 tester = User.find_by(email:'atnika@gmail.com')
 User.create!(email:'atnika@gmail.com', password:'tester123', password_confirmation:'tester123') unless tester.present?
 

@@ -4,9 +4,9 @@ class CreateSeasons < ActiveRecord::Migration
       t.integer :series_id
       t.integer :topic_id
       t.integer :category_id
-      t.text :title
+      t.string :title
       t.text :description
-      t.text :icon
+      t.string :icon
       t.integer :rating
 
       t.timestamps null: false

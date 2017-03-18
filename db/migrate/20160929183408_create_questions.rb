@@ -7,11 +7,11 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :series_id
       t.integer :topic_id
       t.integer :category_id
-      t.text :title
+      t.string :title
       t.text :question
-      t.text :icon
+      t.string :icon
       t.integer :value
-      t.text :snap_shot
+      t.string :snap_shot
 
       t.timestamps null: false
     end

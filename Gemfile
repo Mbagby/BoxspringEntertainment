@@ -47,12 +47,22 @@ gem 'bootstrap-sass'
 gem 'jquery-slick-rails' # jquery slider plugin
 gem 'heroku-deflater', '~> 0.6.3'
 
+
 # added by daiman
+gem 'inherited_resources', '~> 1.7'
+gem 'activeadmin', '1.0.0.pre5'
+gem 'activemodel-serializers-xml'
+
+# Plus integrations with:
+# gem 'cancan'
+# gem 'draper'
+# gem 'pundit'
+
 gem 'haml-rails'
 gem 'devise'
 gem 'fog-aws'
 gem 'carrierwave'
-
+gem "figaro"
 
 gem 'newrelic_rpm'
 
