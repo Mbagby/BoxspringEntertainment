@@ -1,0 +1,63 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HotelExperience
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    .pictureBackground
+      .ui.center.aligned.grid
+        #pageContent.alligned
+          %h2#signupHead.ui.image.header
+            .content
+              Signup For An Account
+          #boxSignup.ui.large.form
+            .ui.stacked.segment
+              = form_for @user, url: signup_path do |f|
+                .field
+                  .form-group
+                    = f.text_field :first_name, :placeholder => "First Name"
+                .field
+                  .form-group
+                    = f.text_field :last_name, :placeholder => "Last Name"
+                .field
+                  .form-group
+                    = f.text_field :email, :placeholder => "Email Address"
+                .field
+                  .form-group
+                    = f.password_field :password, :placeholder => "Password"
+                .field
+                  .form-group
+                    = f.password_field :company_id, :placeholder => "Company ID"
+                .field
+                  .form-group
+                    = f.password_field :employee_id, :placeholder => "Employee ID"
+                %div
+                  = f.submit "Sign Up", id: "loginButton",class: "ui fluid large submit button"
+          #linkTo.ui.message.alignCenter
+            = link_to "Log In", login_path
+          - if !flash.empty?
+            .ui.basic.modal
+              %i.close.icon
+              .ui.icon.header
+                %i.warning.icon
+                %h3 Oh No!
+              .content
+                .description
+                  %p
+                    %i.mail.icon>
+                    \...did you submit a valid email address?
+                  %p
+                    %i.lock.icon>
+                    \...did you submit a password longer than eight characters?
+                  %p
+                    %i.meh.icon>
+                    \...let's go try again
+              .actions
+                .ui.green.basic.inverted.button
+                  %i.checkmark.icon
+                  I'll do better next time, I promise!

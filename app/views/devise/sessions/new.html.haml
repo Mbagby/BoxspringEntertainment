@@ -1,0 +1,19 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  #loginSignupHead.content
+    Login To Your Account
+  .ui.stacked.segment
+    .field
+      #colorFix.ui.left.icon.input
+        = f.email_field :email, :placeholder=>'Email', autofocus: true
+        %i.user.icon
+    .field
+      #colorFix.ui.left.icon.input
+        = f.password_field :password, :placeholder=> "Password", autocomplete: "off"
+        %i.lock.icon
+    %p= link_to "Forgot your password?", new_password_path(resource_name)
+    - if !devise_mapping.rememberable?
+      .ui.checkbox
+        = f.check_box :remember_me
+        = f.label :remember_me
+    .actions
+      = f.submit "Log In", id: "loginButton",class: "ui fluid large submit button"

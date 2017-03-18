@@ -1,0 +1,9 @@
+.banner
+  %div
+#content{:class => "#{@season.snap_shot}"}
+  .rows
+    .row
+      - @episodes.each do |episode|
+        .square
+          #snapshot{:class => "#{episode.snap_shot}"}
+            = link_to episode.title, episode_path(episode.id)

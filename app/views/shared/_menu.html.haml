@@ -1,0 +1,26 @@
+#topMenu.pusher
+  .full.height
+    .following.bar
+      .ui.large.secondary.network.menu
+        %a#browse.view-ui.item.fitted
+          %i.sidebar.icon
+          Browse
+        #logo.item.fitted
+          .ui.logo.shape
+            .sides
+              .active.ui.side
+                = link_to root_path do
+                  %img.ui.image{:src => "#{asset_path('BoxSpringLogo.jpg')}"}/
+        #rightMenu.right.menu
+          .ui.simple.dropdown.item
+            %i.user.icon
+            = current_user.first_name
+            = current_user.last_name
+            %i.dropdown.icon
+            .menu{style:"margin-top:0px;"}
+              .item Profile
+              .item Assignments
+              .item Activity
+              .item Messages
+              .item Settings
+              = link_to "Logout", destroy_user_session_path, method: :delete, class: "item"

@@ -1,0 +1,9 @@
+.banner
+  %div
+#content
+  %div
+  %div
+    %div
+      %h1 Topics#Index
+      - @topics.each do |topic|
+        = link_to topic.title, topic_path(topic.id), :class => "item"

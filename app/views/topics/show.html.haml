@@ -1,0 +1,13 @@
+.banner
+  %div
+#content
+  .rows
+    - @seasons.each do |season|
+      .row
+        .headerCat
+          = link_to season.title, season_path(season.id)
+        - @episodes.each do |episode|
+          - if episode.series_id == season.series_id
+            .square
+              .snapshot
+                = link_to episode.title, episode_path(episode.id)

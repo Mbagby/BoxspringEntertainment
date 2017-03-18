@@ -1,0 +1,6 @@
+/
+  <embed class ="videoLarge" src="http://players.brightcove.net/5136026587001/default_default/index.html?videoId=5155965722001"></embed>
+- @quizes.each do |quiz|
+  - if quiz.episode_id == @episode.episode_id
+    = link_to quize_path(quiz) do
+      %h1#formatHeader= quiz.title
