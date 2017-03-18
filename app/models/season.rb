@@ -16,7 +16,7 @@
 # updated_at 			:datetime
 
 class Season < ActiveRecord::Base
-	mount_uploader :snap_shot, SnapShotUploader
+	# mount_uploader :snap_shot, SnapShotUploader
 	belongs_to :category
 	belongs_to :topic
 	has_many :episodes, dependent: :destroy
