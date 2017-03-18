@@ -23,12 +23,10 @@
 #tools
   %h1#toolsHeader TOOLS
   %p Thoughfully curated, the following audio books, podcasts, games, VR short films, and immersive content pieces ought to provide any type of learner an engaging way to learn more about this subject.
-  - if @category.category_id.to_i == 1
-    = image_tag "LowCQPic.png", :class => 'LowCQ'
-    = image_tag "HighCQPic.png", :class => 'HighCQ'
-  - elsif @category.category_id.to_i == 3 || @category.category_id.to_i == 4
+  - if @category.category_id.to_i == 3
     = image_tag "SocMePic.jpg", :class => 'SocMe'
     = image_tag "LinkedInPic.jpg", :class => 'LinkedIn'
+  - elsif @category.category_id.to_i != 3
 #convo
   %h1 Join The Conversation
   %p Many of us enjoy discussion what we are learning with others, so we've created a safe are for engagement. Please talk to your manager if this area requires "unlocking". In addition, on your own person platforms you can use the # tag from the list provided and automatically join groups on twitter and other platforms that are hosting these discussions.
