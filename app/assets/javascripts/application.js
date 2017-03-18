@@ -29,9 +29,9 @@ $('.ui.radio.checkbox')
   .checkbox()
 ;
 
-$('#preview').click(function(){
-	$('#clicky').modal('show');
-});
+// $('#preview').click(function(){
+// 	$('#clicky').modal('show');
+// });
 
 $('.SocMe').click(function(){
 	$('#tool1').modal('show');
