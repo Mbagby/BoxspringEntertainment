@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :topics, shallow: true do
       resources :seasons do
         resources :episodes, shallow: true do
+          member do
+            get :video_modal
+          end
           resources :quizes, shallow: true
         end
       end

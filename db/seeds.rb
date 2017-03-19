@@ -250,7 +250,7 @@ episodes = Episode.create([
     category_id:categoryFour.id,
     topic_id:Topic.all[3].id,
     season_id:Season.all[3].id,
-    title:'Conscious Incompetence',
+    title:'CQHIGH CQ Clarity',
     description: 'Episode 2',
     rating: '5',
     snap_shot:'CQ_Episode_1'
@@ -261,7 +261,7 @@ episodes = Episode.create([
     category_id:categoryFour.id,
     topic_id:Topic.all[3].id,
     season_id:Season.all[3].id,
-    title:'Conscious Competence',
+    title:'Low CQ Non inspirationals',
     description: 'Episode 3',
     rating: '4',
     snap_shot:'CQ_Episode_2'
@@ -272,7 +272,7 @@ episodes = Episode.create([
     category_id:categoryFour.id,
     topic_id:Topic.all[3].id,
     season_id:Season.all[3].id,
-    title:'Invisible Matter',
+    title:'CQ Low Clarity',
     description: 'Episode 4',
     rating: '5',
     snap_shot:'CQ_Episode_3'
@@ -283,7 +283,7 @@ episodes = Episode.create([
     category_id:categoryFour.id,
     topic_id:Topic.all[3].id,
     season_id:Season.all[3].id,
-    title:'Invisible Matter',
+    title:'High CQ Inspirational',
     description: 'Episode 4',
     rating: '5',
     snap_shot:'CQ_Episode_4'

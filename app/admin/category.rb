@@ -11,7 +11,7 @@ ActiveAdmin.register Category do
       image_tag category.banner.url, width:180, height: 120 if category.banner.present?
     end
     column 'SnapShot' do |category|
-      image_tag category.snap_shot.url, width:180, height: 120 if category.snap_shot.present?
+      # image_tag category.snap_shot.url, width:180, height: 120 if category.snap_shot.present?
     end
     actions
   end

@@ -98,6 +98,12 @@
 		bottom: 0;
 		overflow: hidden;
 		margin-left: 4.2%;
+		a{
+			color: rgb(124,125,126);
+			&:hover{
+				color: #a5a5a5;
+			}
+		}
 	 .square{
 	 	display: inline-block;
 	 	vertical-align: bottom;
@@ -131,9 +137,8 @@
 					font-size: 18px;
 					margin-top: 20px;
 					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
+					text-align: center;
 				}
-
 
 			}
 		}

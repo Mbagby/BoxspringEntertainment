@@ -42,8 +42,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
-
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 gem 'jquery-slick-rails' # jquery slider plugin
 gem 'heroku-deflater', '~> 0.6.3'
 

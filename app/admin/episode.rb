@@ -12,7 +12,7 @@
 
 
 ActiveAdmin.register Episode do
-  permit_params :category_id, :topic_id, :season_id, :episode_id, :series_id, :title, :description, :icon, :rating, :snap_shot
+  permit_params :category_id, :topic_id, :season_id, :episode_id, :series_id, :title, :description, :icon, :rating, :snap_shot, :video_src
 
   index do
     selectable_column
@@ -25,8 +25,9 @@ ActiveAdmin.register Episode do
     column :title
     column :description
     column :rating
+    column :video_src
     column 'SnapShot' do |category|
-      image_tag category.snap_shot.url, width:180, height: 120 if category.snap_shot.present?
+      # image_tag category.snap_shot.url, width:180, height: 120 if category.snap_shot.present?
     end
     actions
   end
@@ -46,6 +47,7 @@ ActiveAdmin.register Episode do
       f.input :title
       f.input :description
       f.input :rating
+      f.input :video_src
       f.input :snap_shot
     end
     f.actions

@@ -11,14 +11,13 @@
       #episodeRow
         - @episodes.each do |episode|
           - if episode.series_id == @season.series_id
-            .square
-              .episodeImage{:id => "#{episode.snap_shot}"}
-              .belowText
-                #episode
-                  / <haml_loud> link_to episode.description, episode_path(episode.id)</haml_loud>
-                #episodeTitle
-                  = episode.title
-                  / <haml_loud> link_to episode.title, episode_path(episode.id)</haml_loud>
+            = link_to video_modal_episode_path(episode), remote: true, class: "episode-video-modal-link" do
+              .square
+                .episodeImage{:id => "#{episode.snap_shot}"}
+                .belowText
+                  #episode
+                  #episodeTitle
+                    = episode.title
 #topicShow
 #tools
   %h1#toolsHeader TOOLS
@@ -32,26 +31,7 @@
 #convo
   %h1 Join The Conversation
   %p Many of us enjoy discussion what we are learning with others, so we've created a safe are for engagement. Please talk to your manager if this area requires "unlocking". In addition, on your own person platforms you can use the # tag from the list provided and automatically join groups on twitter and other platforms that are hosting these discussions.
-#tool1.ui.basic.modal
-  %i.close.icon
-  .header
-    Introduction To The SOCME Academy:
-  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :mozallowfullscreen => "", :msallowfullscreen => "", :oallowfullscreen => "", :scrolling => "no", :src => "//iframe.dacast.com/b/83869/f/366043", :webkitallowfullscreen => "", :width => "854"}
-#tool2.ui.basic.modal
-  %i.close.icon
-  .header
-    How To Use LinkedIn Effectively:
-  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :mozallowfullscreen => "", :msallowfullscreen => "", :oallowfullscreen => "", :scrolling => "no", :src => "//iframe.dacast.com/b/83869/f/366041", :webkitallowfullscreen => "", :width => "854"}
-#tool3.ui.basic.modal
-  %i.close.icon
-  .header
-    Low CQ:
-  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :mozallowfullscreen => "", :msallowfullscreen => "", :oallowfullscreen => "", :scrolling => "no", :src => "//iframe.dacast.com/b/83869/f/365338", :webkitallowfullscreen => "", :width => "854"}
-#tool4.ui.basic.modal
-  %i.close.icon
-  .header
-    High CQ:
-  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :mozallowfullscreen => "", :msallowfullscreen => "", :oallowfullscreen => "", :scrolling => "no", :src => "//iframe.dacast.com/b/83869/f/365337", :webkitallowfullscreen => "", :width => "854"}
+
 #clicky.ui.basic.modal
   %i.close.icon
   .header
@@ -64,3 +44,6 @@
       Sea Knot
     - elsif @category.category_id == 2
       Communication
+
+#episode_video.ui.basic.modal
+=render "modals"

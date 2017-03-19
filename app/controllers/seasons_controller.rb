@@ -1,4 +1,5 @@
 class SeasonsController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@categories = Category.order('category_id').all
 		@seasons = Season.all

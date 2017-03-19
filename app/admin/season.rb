@@ -20,7 +20,7 @@ ActiveAdmin.register Season do
     column :description
     column :rating
     column 'SnapShot' do |category|
-      image_tag category.snap_shot.url, width:180, height: 120 if category.snap_shot.present?
+      # image_tag category.snap_shot.url, width:180, height: 120 if category.snap_shot.present?
     end
     actions
   end
