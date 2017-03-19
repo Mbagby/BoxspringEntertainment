@@ -125,45 +125,6 @@ body { position:relative;
 };
 
 
-/*Categories#Index*/
-
-#formatHeader{
-	font-weight: 100;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	margin-left: 10px;
-	margin-bottom: 5px;
-	margin-top: 10px;
-	color: #7C7D7E;
-	font-size: 25px;
-}
-a, a:link{
-	text-decoration: none;
-}
-#logo{
-	display: block;
-  	margin-left: auto;
-}
-.ui.image{
-	  	height: 100px;
-  	width: 100px;
-}
-.ui.secondary.menu .item{
-	font-size: 17px;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #7C7D7E;
-}
-
-.rows{
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-	color: #7C7D7E;
-	text-transform: uppercase;
-	.row{
-		margin-bottom: 5px;
-		overflow: hidden;
-	}
-};
 
 
 /*SeasonsImages*/

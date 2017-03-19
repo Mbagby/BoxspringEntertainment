@@ -1,16 +1,10 @@
-#content.container.uui
+#content.container.uui.category-index
   .grid.rows
     .category-slick
       - @categories.each do |category|
         %div
           = link_to category_path(category) do
-            %h1#formatHeader= category.title
+            %h1.formatHeader= category.title
           = link_to category_path(category) do
-            .banner{:id => "#{category.snap_shot}"}
-  -# .rows
-  -#   - @categories.each do |category|
-  -#     .row
-  -#       = link_to category_path(category) do
-  -#         %h1#formatHeader= category.title
-  -#       = link_to category_path(category) do
-  -#         .banner{:id => "#{category.snap_shot}"}
+            .banner
+              = image_tag category.banner.url

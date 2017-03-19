@@ -4,7 +4,8 @@
   = link_to category_path(@category) do
     %h1#formatHeaderShow= @category.title
   .seasonShow
-    %div{:id => "#{@season.snap_shot}"}
+    %div
+      = image_tag @category.snap_shot.url, class: "category-snap-shot", height: 800, width:"100%"
       #previewNow
         %button#preview.ui.red.small.button
           Coming Soon
@@ -13,7 +14,7 @@
           - if episode.series_id == @season.series_id
             = link_to video_modal_episode_path(episode), remote: true, class: "episode-video-modal-link" do
               .square
-                .episodeImage{:id => "#{episode.snap_shot}"}
+                = image_tag episode.snap_shot.url, class:"episodeImage", height:145, width: "100%"
                 .belowText
                   #episode
                   #episodeTitle

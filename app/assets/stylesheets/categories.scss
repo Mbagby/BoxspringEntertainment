@@ -1,6 +1,43 @@
-// Place all the styles related to the categories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*Categories#Index*/
+.formatHeader{
+	font-weight: 100;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-left: 10px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	color: #7C7D7E;
+	font-size: 25px;
+}
+a, a:link{
+	text-decoration: none;
+}
+#logo{
+	display: block;
+  	margin-left: auto;
+}
+.ui.image{
+	  	height: 100px;
+  	width: 100px;
+}
+.ui.secondary.menu .item{
+	font-size: 17px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #7C7D7E;
+}
+
+.rows{
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	color: #7C7D7E;
+	text-transform: uppercase;
+	.row{
+		margin-bottom: 5px;
+		overflow: hidden;
+	}
+};
+
+
 /*CatgoriesImages*/
 #EthicsAndCompliance{
 	background-image: image-url("HR_Square_Banner_4.jpg");
@@ -80,8 +117,8 @@
     	   width:220px;
 }
 .ui.red.small.button{
-    		border: 2px solid white;
-    	}
+	border: 2px solid white;
+}
 .seasonShow{
 	width: 100%;
 	height: 900px;
@@ -144,27 +181,6 @@
 		}
 	}
 }
-#TheHRFiles{
-	background-image: image-url("HRFiles.jpg");
-	height: 900px;
-	background-size: cover;
-}
-#Hacks{
-	background-image: image-url("Hacks.jpg");
-	height: 900px;
-	background-size: cover;
-}
-#SeaKnot{
-	background-image: image-url("SeaKnot.jpg");
-	height: 900px;
-	background-size: cover;
-}
-
-#Communication_Season{
-	background-image: image-url("Communication_Season.jpg");
-	height: 800px;
-	background-size: cover;
-}
 
 #formatHeaderShow{
 	font-weight: 100;
@@ -177,146 +193,13 @@
 }
 
 
-/*Episodes*/
-#CostOfOnboarding{
-	background-image: image-url("CostOfOnboarding.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#EqualOpportunityEmployer{
-	background-image: image-url("EqualOpportunityEmployer.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#VettingEmployees{
-	background-image: image-url("VettingEmployees.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#BusinessBarBrawls{
-	background-image: image-url("BusinessBarBrawls.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#WhenPoliticiansOughtToStayHome{
-	background-image: image-url("WhenPoliticiansOughtToStayHome.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#SecurePasswords{
-	background-image: image-url("SecurePasswords.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#Phishing{
-	background-image: image-url("Phishing.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#SecuringYourComputer{
-	background-image: image-url("SecuringYourComputer.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#IdentifyYourID{
-	background-image: image-url("IdentifyYourID.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#ToePrintsAreIT{
-	background-image: image-url("ToePrintsAreIT.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#UnconsciousIncompetence{
-	background-image: image-url("UnconsciousIncompetence.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#ConsciousIncompetence{
-	background-image: image-url("ConsciousIncompetence.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#ConsciousCompetence{
-	background-image: image-url("ConsciousCompetence.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#InvisibleMatter{
-	background-image: image-url("InvisibleMatter.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#SignsofNothing{
-	background-image: image-url("SignsofNothing.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#CQ_Episode_1{
-	background-image: image-url("CQ_Episode_1.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#CQ_Episode_2{
-	background-image: image-url("CQ_Episode_2.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#CQ_Episode_3{
-	background-image: image-url("CQ_Episode_3.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-#CQ_Episode_4{
-	background-image: image-url("CQ_Episode_4.jpg");
-	height: 145px;
-	width: 100%;
-	background-size: cover;
-	display: inline-block;
-}
-
 /*Category#Show*/
 .category-slick{
   button{
     z-index: 9999999;
     top: 80%;
+		width:0px;
+		height:0px;
   }
   .slick-prev{
     left: 0px;

@@ -19,7 +19,7 @@
 # updated_at 			:datetime
 
 class Episode < ActiveRecord::Base
-	# mount_uploader :snap_shot, SnapShotUploader
+	mount_uploader :snap_shot, SnapShotUploader
 	belongs_to :category
 	belongs_to :topic
 	belongs_to :season
