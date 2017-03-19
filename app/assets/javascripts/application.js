@@ -39,9 +39,7 @@ var createSlick  = function(){
 
 $(document).ready(function(){
 
-  $('.ui.radio.checkbox')
-    .checkbox()
-  ;
+  $('.ui.radio.checkbox').checkbox();
 
   $('#preview').click(function(){
   	$('#clicky').modal('show');
@@ -96,6 +94,7 @@ $(document).ready(function(){
   	}else{
   	}
   });
+
   $(document).scroll(function(){
   	$(".following.bar").attr('id','scrolled');
 
@@ -106,9 +105,7 @@ $(document).ready(function(){
 
   });
 
-
 });
-
 
 $(document).ready(function(){
   createSlick();
