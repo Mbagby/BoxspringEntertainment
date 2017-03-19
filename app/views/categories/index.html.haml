@@ -7,4 +7,4 @@
             %h1.formatHeader= category.title
           = link_to category_path(category) do
             .banner
-              = image_tag category.banner.url
+              = image_tag category.banner.url if category.banner.present?
