@@ -9,7 +9,7 @@
 
 
 ActiveAdmin.register User do
-  permit_params :first_name, :last_name, :email, :password, :password_confiratmin, :company_id, :employee_id, :avatar, :user_type
+  permit_params :first_name, :last_name, :email, :password, :password_confirmation, :company_id, :employee_id, :avatar, :user_type
 
   index do
     selectable_column
