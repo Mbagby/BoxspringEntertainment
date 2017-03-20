@@ -2,9 +2,13 @@
   .full.height
     .following.bar
       .ui.large.secondary.network.menu
-        %a#browse.view-ui.item.fitted
-          %i.sidebar.icon
-          Browse
+        #browse.view-ui.item.fitted
+          .ui.simple.dropdown.item
+            %i.sidebar.icon
+            Browse
+            .menu{style:"margin-top:0px;"}
+              - @categories.each do |category|
+                = link_to category.title, category_path(category), class: "item"              
 
         #logo.item.fitted
           .ui.logo.shape

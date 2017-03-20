@@ -4,9 +4,8 @@
     - if quiz.episode_id == @episode.episode_id
       = link_to quize_path(quiz) do
         %h1#formatHeader= quiz.title
-
-  .row.comment-list{:style => "margin-top:40px;"}
-    - @episode.comments.each do |comment|
+  - @episode.comments.each do |comment|
+    .row.comment-list
       .col-sm-1
         .thumbnail
           = image_tag "avatar.png", class:"img-responsive user-photo"

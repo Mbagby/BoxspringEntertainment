@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :avatar, AvatarUploader
-  enum user_type:[:hr_manager, :employeer]
+  enum user_type:[:employeer, :hr_manager]
 
   def name
     [first_name, last_name].join(' ')
