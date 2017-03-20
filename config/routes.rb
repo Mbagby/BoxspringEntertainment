@@ -16,7 +16,13 @@ Rails.application.routes.draw do
         end
       end
     end
+  end
 
+  resources :users, only: [:new] do 
+    member do
+      get :profile
+      get :dashboard
+    end
   end
 
   get "/quizes", to: "quizes#index"

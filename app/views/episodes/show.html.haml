@@ -1,6 +1,24 @@
-/
-  <embed class ="videoLarge" src="http://players.brightcove.net/5136026587001/default_default/index.html?videoId=5155965722001"></embed>
-- @quizes.each do |quiz|
-  - if quiz.episode_id == @episode.episode_id
-    = link_to quize_path(quiz) do
-      %h1#formatHeader= quiz.title
+.container
+  %embed.videoLarge{src: @episode.video_src}
+  - @quizes.each do |quiz|
+    - if quiz.episode_id == @episode.episode_id
+      = link_to quize_path(quiz) do
+        %h1#formatHeader= quiz.title
+
+
+  .row{:style => "margin-top:40px;"}
+    .col-md-12
+      .well.well-sm
+        .text-right
+          %a#open-review-box.btn.btn-success.btn-green{:href => "#reviews-anchor"} Leave a Review
+        #post-review-box.row{:style => "display:none;"}
+          .col-md-12
+            %form{"accept-charset" => "UTF-8", :action => "", :method => "post"}
+              %input#ratings-hidden{:name => "rating", :type => "hidden"}/
+              %textarea#new-review.form-control.animated{:cols => "50", :name => "comment", :placeholder => "Enter your review here...", :rows => "5"}
+              .text-right
+                .stars.starrr{"data-rating" => "0"}
+                %a#close-review-box.btn.btn-danger.btn-sm{:href => "#", :style => "display:none; margin-right: 10px;"}
+                  %span.glyphicon.glyphicon-remove>
+                  Cancel
+                %button.btn.btn-success.btn-lg{:type => "submit"} Save

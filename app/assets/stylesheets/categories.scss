@@ -39,55 +39,55 @@ a, a:link{
 
 
 /*CatgoriesImages*/
-#EthicsAndCompliance{
-	background-image: image-url("HR_Square_Banner_4.jpg");
-	background-size: cover;
-	height: 500px;
-	color: #7C7D7E;
-};
-
-#Technology{
-	background-image: image-url("Hacks_Square_Banner.jpg");
-	background-size: cover;
-	width: 100%;
-	height: 500px;
-	color: #7C7D7E;
-};
-#Consciousness{
-	background-image: image-url("Sea_Knot_Square_Banner.jpg");
-	background-size: cover;
-	width: 100%;
-	height: 500px;
-	color: #7C7D7E;
-};
-
-#Communication{
-	background-image: image-url("Communication.jpg");
-	background-size: cover;
-	width: 100%;
-	height: 500px;
-	color: #7C7D7E;
-};
+// #EthicsAndCompliance{
+// 	background-image: image-url("HR_Square_Banner_4.jpg");
+// 	background-size: cover;
+// 	height: 500px;
+// 	color: #7C7D7E;
+// };
+//
+// #Technology{
+// 	background-image: image-url("Hacks_Square_Banner.jpg");
+// 	background-size: cover;
+// 	width: 100%;
+// 	height: 500px;
+// 	color: #7C7D7E;
+// };
+// #Consciousness{
+// 	background-image: image-url("Sea_Knot_Square_Banner.jpg");
+// 	background-size: cover;
+// 	width: 100%;
+// 	height: 500px;
+// 	color: #7C7D7E;
+// };
+//
+// #Communication{
+// 	background-image: image-url("Communication.jpg");
+// 	background-size: cover;
+// 	width: 100%;
+// 	height: 500px;
+// 	color: #7C7D7E;
+// };
 
 /*Categories#Index*/
 #snapshot{
-				background-image: image-url("GreenSparkly.jpg");
-				width: 255px;
-				height: 175px;
-				a{
-					color: white;
-					float: right;
-					margin-right: 5px;
-					margin-top: 5px;
-					background-color: #7C7D7E;
-					opacity: .9;
-					border-radius: 2px;
-					padding-right: 3px;
-					padding-left: 3px;
-					padding-top:2px;
-					padding-bottom: 2px;
-				}
-			}
+	background-image: image-url("GreenSparkly.jpg");
+	width: 255px;
+	height: 175px;
+	a{
+		color: white;
+		float: right;
+		margin-right: 5px;
+		margin-top: 5px;
+		background-color: #7C7D7E;
+		opacity: .9;
+		border-radius: 2px;
+		padding-right: 3px;
+		padding-left: 3px;
+		padding-top:2px;
+		padding-bottom: 2px;
+	}
+}
 .videoSize{
 	width:100%;
 	height: 508px;
@@ -96,7 +96,7 @@ a, a:link{
 	height:740px;
 	width: 100%;
 	position: relative;
-	margin-top: 125px;
+	// margin-top: 125px;
 }
 
 .bannerVideo{
@@ -216,4 +216,12 @@ a, a:link{
   .slick-next:hover::before{
     color: #9c9c9c;
   }
+	.slick-slide{
+		.banner{
+			img{
+				padding: 10px;
+				width: 100%;
+			}
+		}
+	}
 }

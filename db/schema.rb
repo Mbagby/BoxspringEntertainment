@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319130058) do
+ActiveRecord::Schema.define(version: 20170320144530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,11 +77,11 @@ ActiveRecord::Schema.define(version: 20170319130058) do
     t.text     "description"
     t.string   "icon"
     t.integer  "rating"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "snap_shot"
     t.integer  "season_id"
-    t.string   "video_src"
+    t.string   "video_src",   limit: 255
   end
 
   create_table "questions", force: :cascade do |t|
@@ -115,6 +115,16 @@ ActiveRecord::Schema.define(version: 20170319130058) do
     t.integer  "correctness"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.integer  "score",      default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["comment_id"], name: "index_ratings_on_comment_id", using: :btree
+    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -165,4 +175,6 @@ ActiveRecord::Schema.define(version: 20170319130058) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "ratings", "comments"
+  add_foreign_key "ratings", "users"
 end

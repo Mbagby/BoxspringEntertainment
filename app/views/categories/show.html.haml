@@ -12,7 +12,8 @@
       #episodeRow
         - @episodes.each do |episode|
           - if episode.series_id == @season.series_id
-            = link_to video_modal_episode_path(episode), remote: true, class: "episode-video-modal-link" do
+            -# = link_to video_modal_episode_path(episode), remote: true, class: "episode-video-modal-link" do
+            = link_to episode_path(episode), class: "episode-show-link" do
               .square
                 = image_tag episode.snap_shot.url, class:"episodeImage", height:145, width: "100%" if episode.snap_shot.present?
                 .belowText

@@ -23,5 +23,5 @@
               .item Assignments
               .item Activity
               .item Messages
-              .item Settings
+              = link_to "Dashboard", dashboard_user_path(current_user), class: "item"
               = link_to "Logout", destroy_user_session_path, method: :delete, class: "item"

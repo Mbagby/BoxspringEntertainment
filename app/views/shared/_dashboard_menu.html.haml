@@ -1,0 +1,31 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"data-target" => "#navbar1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path, class: 'navbar-brand', style:"padding:0px" do
+        = image_tag "BoxSpringLogo.jpg", height: "100%;"
+    #navbar1.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"} MT PROFILE
+        %li
+          %a{:href => "#"} EDIT
+        %li
+          %a{:href => "#"} VIEW
+        %li
+          %a{:href => "#"} PREFERENCES
+        %li
+          %a{:href => "#"} PRIVACY
+        %li
+          = link_to "LOG-OUT", destroy_user_session_path, method: :delete, class: "item"
+      .col-sm-3.col-md-3.pull-right
+        %form.navbar-form{:role => "search"}
+          .input-group
+            %input.form-control{:name => "q", :placeholder => "Search", :type => "text"}/
+            .input-group-btn
+              %button.btn.btn-default{:type => "submit"}
+                %i.glyphicon.glyphicon-search
