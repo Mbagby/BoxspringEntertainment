@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
   enum user_type:[:hr_manager, :employeer]
+
+  def name
+    [first_name, last_name].join(' ')
+  end
 end

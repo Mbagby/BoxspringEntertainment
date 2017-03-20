@@ -3,7 +3,7 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 p "creating active admin user ----->"
 admin = AdminUser.find_by(email:"admin@madeline.com")
-AdminUser.create!(email:"admin@madeline.com", password:"admin123", password_confirmation:"admin123") unless admin.present?
+AdminUser.create!(first_name:"First", last_name:"Developer", email:"admin@madeline.com", password:"admin123", password_confirmation:"admin123") unless admin.present?
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 p "creating testing user ----->"

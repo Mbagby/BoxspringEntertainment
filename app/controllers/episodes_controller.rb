@@ -1,7 +1,7 @@
 class EpisodesController < ApplicationController
 	before_action :authenticate_user!
 	def show
-		@categories = Category.order('category_id').all
+		# @categories = Category.order('category_id').all
 		@episode = Episode.find_by_id(params[:id])
 		@quizes = Quiz.all
 		@user = User.find_by_id(session[:user_id])
@@ -11,7 +11,14 @@ class EpisodesController < ApplicationController
 		@episode = Episode.find(params[:id])
     respond_to do |format|
         format.js
-    end		
+    end
+	end
+
+	def comment
+		@episode = Episode.find(params[:id])
+		@comment = @episode.comments.new(user:current_user, body:params[:comment], rate: params[:rating])
+		@comment.save
+		redirect_to episode_path(@episode)
 	end
 
 end

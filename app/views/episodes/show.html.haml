@@ -1,9 +1,25 @@
-.container
+.container.episode-show-page
   %embed.videoLarge{src: @episode.video_src}
   - @quizes.each do |quiz|
     - if quiz.episode_id == @episode.episode_id
       = link_to quize_path(quiz) do
         %h1#formatHeader= quiz.title
+
+  .row.comment-list{:style => "margin-top:40px;"}
+    - @episode.comments.each do |comment|
+      .col-sm-1
+        .thumbnail
+          = image_tag "avatar.png", class:"img-responsive user-photo"
+      .col-sm-8
+        .panel.panel-default
+          .panel-heading
+            %strong= current_user.name
+            %span.text-muted
+              commented
+              = comment.commnted_time_string
+            .stars.starrr.pull-right{"data-rating" => comment.rate, style:"margin:0px;"}
+          .panel-body
+            = comment.body
 
 
   .row{:style => "margin-top:40px;"}
@@ -13,7 +29,7 @@
           %a#open-review-box.btn.btn-success.btn-green{:href => "#reviews-anchor"} Leave a Review
         #post-review-box.row{:style => "display:none;"}
           .col-md-12
-            %form{"accept-charset" => "UTF-8", :action => "", :method => "post"}
+            = form_tag comment_episode_path(@episode) do
               %input#ratings-hidden{:name => "rating", :type => "hidden"}/
               %textarea#new-review.form-control.animated{:cols => "50", :name => "comment", :placeholder => "Enter your review here...", :rows => "5"}
               .text-right

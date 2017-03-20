@@ -35,7 +35,7 @@ $(function(){
 
   });
 
-  $('.starrr').on('starrr:change', function(e, value){
+  $('form .starrr').on('starrr:change', function(e, value){
     ratingsField.val(value);
   });
 });

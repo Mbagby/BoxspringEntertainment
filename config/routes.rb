@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         resources :episodes, shallow: true do
           member do
             get :video_modal
+            post :comment
           end
           resources :quizes, shallow: true
         end
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:new] do 
+  resources :users, only: [:new] do
     member do
       get :profile
       get :dashboard
