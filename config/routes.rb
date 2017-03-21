@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:new] do
+  resources :users, only: [:update] do
     member do
       get :profile
       get :dashboard

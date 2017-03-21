@@ -5,7 +5,7 @@
     %h1#formatHeaderShow= @category.title
   .seasonShow
     %div
-      = image_tag @category.snap_shot.url, class: "category-snap-shot", height: 800, width:"100%" if @category.snap_shot.present?
+      = image_tag @category.snap_shot.url, class: "img-responsive", height: 800, width:"100%" if @category.snap_shot.present?
       #previewNow
         %button#preview.ui.red.small.button
           Coming Soon
@@ -15,10 +15,10 @@
             -# = link_to video_modal_episode_path(episode), remote: true, class: "episode-video-modal-link" do
             = link_to episode_path(episode), class: "episode-show-link" do
               .square
-                = image_tag episode.snap_shot.url, class:"episodeImage", height:145, width: "100%" if episode.snap_shot.present?
+                = image_tag episode.snap_shot.url, class:"img-responsive", height:145, width: "100%" if episode.snap_shot.present?
                 .belowText
-                  #episode
-                  #episodeTitle
+                  .episode
+                  .episode-title
                     = episode.title
 #topicShow
 #tools
