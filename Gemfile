@@ -63,6 +63,9 @@ gem 'fog-aws'
 gem 'carrierwave'
 gem "figaro"
 
+# gem 'stripe'
+gem 'stripe-rails'
+
 gem 'newrelic_rpm'
 
 
