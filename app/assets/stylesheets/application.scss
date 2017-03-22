@@ -82,6 +82,11 @@ body {
 	}
 }
 
+.staticBackground{
+	background-image: image-url("StaticBackground.jpg");
+	background-size: cover;
+	width: 100%;
+}
 
 
 #tools{
