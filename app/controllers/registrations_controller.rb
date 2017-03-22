@@ -1,13 +1,16 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def new
     super
   end
 
   def create
-    super do
-        resource.assign_attributes(sign_up_params)
-        resource.save
+    if params[:stripe_token].present?
+      super do
+          resource.assign_attributes(sign_up_params)
+          resource.save
+      end
+    else
     end
   end
 

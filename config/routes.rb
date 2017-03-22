@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   # devise_scope :user do
   #   root to: "devise/sessions#new"
   # end
-
+  get :select_box, to: "home#select_box"
+  get :set_card_info, to: "home#set_card_info"
+  get :contact, to: "home#contact"
+  
   root to: "categories#index"
 end

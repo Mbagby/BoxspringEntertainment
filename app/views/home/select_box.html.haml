@@ -1,0 +1,23 @@
+.row.select-box-page
+  .col-sm-2.hiden-xs
+  .select-box.col-sm-4.col-xs-6
+    = link_to new_registration_path(:user) do
+      .card
+        .header
+          %h3 Standard
+        .card-block
+          %p.card-text Purchase A Single User Account
+          %p.card-text A standard user account give access to select videos, learning courses, messaging boards, and extended content.
+          %p.card-text Come join the conversation.
+          %p.right Monthly Subscription: $15.99
+
+  .select-box.col-sm-4.col-xs-6
+    = link_to contact_path do
+      .card
+        .header
+          %h3 Enterprise
+        .card-block
+          %p.card-text Purchase Multiple Manager and Employee Accounts
+          %p.card-text Control and assign meaningful courses to employees through manager accounts.
+          %p.card-text Spin up online discussions between peers about essential topics.
+          %p.right Custom pricing available

@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
       "devise"
     elsif params[:action] == 'dashboard'
       "dashboard"
+    elsif params[:controller] == "home"
+      "home_layout"
     else
       "application"
     end

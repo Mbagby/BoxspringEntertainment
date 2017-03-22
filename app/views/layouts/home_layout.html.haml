@@ -8,4 +8,10 @@
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
   %body
-    .contact-page
+    .pictureBackground
+      .container
+        = yield
+:css
+  body {
+    padding-top: 0px;
+  }
