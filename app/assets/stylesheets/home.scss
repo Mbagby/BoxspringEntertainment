@@ -80,17 +80,7 @@
   width: 100%;
   height: 850px;
   margin-top: -105px;
-}
-.contact-page{
-  width: 50%;
-  height: 35%;
-  background-color: white;
-  border-radius: 5px;
-  .contactInformation{
-    background-color: #404040;
-    border-radius: 5px;
-    text-align: center;
-  }
+  position: relative;
   .copywrite{
     float: right;
     color: white;
@@ -99,5 +89,19 @@
     bottom: 0;
     font-weight: 100;
     font-size: 30px;
+  }
+}
+.contact-page{
+  width: 50%;
+  height: 35%;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  .contactInformation{
+    background-color: #404040;
+    border-radius: 5px;
+    text-align: center;
   }
 }
