@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     end
   end
 
+get "/home/contact" => "home#contact"
+
   get "/quizes", to: "quizes#index"
   #
   # devise_scope :user do
