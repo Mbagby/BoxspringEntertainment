@@ -6,8 +6,11 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
   enum user_type:[:employeer, :hr_manager]
-
+  belongs_to :plan
   def name
     [first_name, last_name].join(' ')
+  end
+  def renew
+    update_attibute :end_date, Date.today + 1.month
   end
 end

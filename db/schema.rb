@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320151358) do
+ActiveRecord::Schema.define(version: 20170322134037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20170320151358) do
     t.string   "snap_shot"
     t.integer  "season_id"
     t.string   "video_src",   limit: 255
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "amount"
+    t.string   "interval"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "questions", force: :cascade do |t|
@@ -171,6 +180,10 @@ ActiveRecord::Schema.define(version: 20170320151358) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "user_type"
+    t.string   "card_token"
+    t.integer  "plan_id"
+    t.date     "end_date"
+    t.integer  "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

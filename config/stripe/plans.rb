@@ -30,15 +30,19 @@
 #
 # This will export any new plans to stripe.com so that you can
 # begin using them in your API calls.
-
+if Rails.env.production?
+  Stripe.api_key = ENV['stripe_secret_key']
+else
+  Stripe.api_key = ENV['stripe_test_secret_key']
+end
 Stripe.plan :silver do |plan|
-  plan.name = 'Silver'
+  plan.name = 'silver'
   plan.amount = 1599 # $15.99
   plan.interval = 'month'
 end
 
 Stripe.plan :gold do |plan|
-  plan.name = 'Gold'
+  plan.name = 'gold'
   plan.amount = 2999 # $29.99
   plan.interval = 'month'
 end

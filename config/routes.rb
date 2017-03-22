@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-get "/home/contact" => "home#contact"
+  get "/home/contact" => "home#contact"
 
   get "/quizes", to: "quizes#index"
   #
@@ -36,6 +36,6 @@ get "/home/contact" => "home#contact"
   get :select_box, to: "home#select_box"
   get :set_card_info, to: "home#set_card_info"
   get :contact, to: "home#contact"
-  
+  post "/home/hook" => "home#hook"
   root to: "categories#index"
 end
