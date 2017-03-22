@@ -82,6 +82,15 @@
   margin-top: -105px;
 }
 .contact-page{
+  width: 50%;
+  height: 35%;
+  background-color: white;
+  border-radius: 5px;
+  .contactInformation{
+    background-color: #404040;
+    border-radius: 5px;
+    text-align: center;
+  }
   .copywrite{
     float: right;
     color: white;
