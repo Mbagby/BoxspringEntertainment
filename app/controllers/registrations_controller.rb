@@ -11,6 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
           resource.save
       end
     else
+      redirect_to new_registration_path(:user), "Please input the card info"
     end
   end
 

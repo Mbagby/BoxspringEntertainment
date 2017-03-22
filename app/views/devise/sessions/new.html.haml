@@ -10,6 +10,7 @@
       #colorFix.ui.left.icon.input
         = f.password_field :password, :placeholder=> "Password", autocomplete: "off"
         %i.lock.icon
+    %p{style:"float:left;"}= link_to "Sign Up", select_box_path
     %p= link_to "Forgot your password?", new_password_path(resource_name)
     - if !devise_mapping.rememberable?
       .ui.checkbox
