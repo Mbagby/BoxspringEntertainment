@@ -73,6 +73,22 @@
   }
 }
 
+
+.staticBackground{
+  background-image: image-url("StaticBackground.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 850px;
+  margin-top: -105px;
+}
 .contact-page{
-  
+  .copywrite{
+    float: right;
+    color: white;
+    margin-top: 50%;
+    position: fixed;
+    bottom: 0;
+    font-weight: 100;
+    font-size: 30px;
+  }
 }
