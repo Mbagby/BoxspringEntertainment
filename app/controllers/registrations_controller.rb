@@ -13,7 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
       if customer.id.present?
         super do
           resource.assign_attributes(sign_up_params)
-          resource.assign_attributes(card_token:params[:stripe_token], end_date:Time.now.to_date + 1.month, plan_id:plan.id, customer_id:customer.id)
+          resource.assign_attributes(card_token:params[:stripe_token], end_date: Date.today + 1.month, plan_id:plan.id, customer_id:customer.id)
           resource.save
         end
       else

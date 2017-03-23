@@ -10,7 +10,8 @@ class User < ApplicationRecord
   def name
     [first_name, last_name].join(' ')
   end
+
   def renew
-    update_attibute :end_date, Date.today + 1.month
+    update_attribute :end_date, Date.today + 1.month
   end
 end

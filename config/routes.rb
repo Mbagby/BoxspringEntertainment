@@ -17,6 +17,13 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    member do
+      get :message_board      
+    end
+
+    resources :messages, shallow:true, only: [:index, :show, :new, :create] do
+    end
   end
 
   resources :users, only: [:update] do

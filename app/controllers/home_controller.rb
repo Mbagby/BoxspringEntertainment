@@ -10,13 +10,12 @@ class HomeController < ApplicationController
   end
 
   # POST /home/hook
-  protect_from_forgery except: :webhook
+  protect_from_forgery except: :hook
   def hook
     Stripe.api_key = Rails.application.secrets.stripe_secret_key
     p "api_key = #{Stripe.api_key}"
     event = Stripe::Event.retrieve(params["id"])
-    p "event --->"
-    p event
+    p "event --->#{event}"
     case event.type
       when "invoice.payment_succeeded" #renew subscription
         User.find_by_customer_id(event.data.object.customer).renew

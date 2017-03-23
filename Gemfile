@@ -43,6 +43,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 gem 'bootstrap-sass'
+gem 'summernote-rails'
 gem 'jquery-slick-rails' # jquery slider plugin
 gem 'heroku-deflater', '~> 0.6.3'
 
@@ -65,9 +66,11 @@ gem "figaro"
 
 # gem 'stripe'
 gem 'stripe-rails'
-
+gem 'mailboxer'
 gem 'newrelic_rpm'
 
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

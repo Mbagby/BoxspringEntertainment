@@ -8,14 +8,17 @@
     .row.comment-list
       .col-sm-1
         .thumbnail
-          = image_tag "avatar.png", class:"img-responsive user-photo"
+          - if current_user.avatar.present?
+            = image_tag current_user.avatar.url, class:"img-responsive user-photo"
+          - else
+            = image_tag "avatar.png", class:"img-responsive user-photo"
       .col-sm-8
         .panel.panel-default
           .panel-heading
             %strong= current_user.name
             %span.text-muted
               commented
-              = comment.commnted_time_string
+              = comment.commented_time_string
             .stars.starrr.pull-right{"data-rating" => comment.rate, style:"margin:0px;"}
           .panel-body
             = comment.body

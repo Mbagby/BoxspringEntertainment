@@ -1,9 +1,10 @@
-class Comment < ApplicationRecord
+class Message < ApplicationRecord
   belongs_to :user
-  belongs_to :commentable, polymorphic: true
-  has_many :comments, as: :commentable
+  belongs_to :messageable, polymorphic: true
+  has_many :messages, as: :messageable
   default_scope { order(created_at: :desc) }
-  def commented_time_string
+
+  def messaged_time_string
     str_diff = ""
     diff_time = Time.now - self.created_at
     if diff_time / 1.day > 1

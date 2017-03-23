@@ -14,14 +14,14 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 // require turbolinks
-//= require semantic-ui
 //= require jquery.slick
+//= require summernote
 //= require_tree .
 // Loads all Semantic javascripts
 
 $(document).ready(function(){
 
-  $('.ui.radio.checkbox').checkbox();
+  // $('.ui.radio.checkbox').checkbox();
 
   $('#preview').click(function(){
   	$('#clicky').modal('show');

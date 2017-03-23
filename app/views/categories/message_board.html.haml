@@ -1,0 +1,54 @@
+.container.message-board-page
+  .row
+    .col-sm-12
+      %h1
+        TOPIC:
+        = @category.title
+    .col-sm-12
+      = form_tag category_messages_path(@category) do
+        .form-group
+          %label.control-label{:for => "message-text"} Message:
+          %textarea#summernote.form-control{name:"body"}
+        .form-group
+          = submit_tag "Post Message", class:"btn btn-primary"
+  .row
+    - @messages.each do |message|
+      .row.message-list
+        .col-sm-1.col-xs-2
+          .thumbnail
+            - if current_user.avatar.present?
+              = image_tag current_user.avatar.url, class:"img-responsive user-photo"
+            - else
+              = image_tag "avatar.png", class:"img-responsive user-photo"
+        .col-sm-10.col-xs-8
+          .panel.panel-default
+            .panel-heading
+              %strong= current_user.name
+              %span.text-muted
+                sent
+                = message.messaged_time_string
+            .panel-body
+              = raw message.body
+/ Modal
+#post_message.modal.fade{"aria-labelledby" => "post_message_label", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document", style:"margin-top: 100px;"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#post_message_label.modal-title New message
+      .modal-body
+        = form_tag category_messages_path(@category) do
+          .form-group
+            %label.control-label{:for => "message-text"} Message:
+            %textarea.summernote.form-control
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary{:type => "button"} Send message
+
+:javascript
+  $(document).ready(function() {
+    $('#summernote').summernote({
+      height: 100
+    });
+  });

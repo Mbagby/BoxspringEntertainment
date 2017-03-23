@@ -11,4 +11,9 @@ class CategoriesController < ApplicationController
 		@season = Season.where(category_id: @category.id).first
 		@episodes = Episode.all
 	end
+
+	def message_board
+		@category = Category.find(params[:id])
+		@messages = @category.messages
+	end
 end

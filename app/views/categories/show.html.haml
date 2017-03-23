@@ -1,3 +1,4 @@
+= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"
 .banner
   %div
 #content
@@ -29,7 +30,8 @@
     = image_tag "LinkedInPic.jpg", :class => 'LinkedIn'
   - elsif @category.category_id.to_i != 3
 #convo
-  %h1 Join The Conversation
+  = link_to message_board_category_path(@category) do
+    %h1 Join The Conversation
   %p Many of us enjoy discussion what we are learning with others, so we've created a safe are for engagement. Please talk to your manager if this area requires "unlocking". In addition, on your own person platforms you can use the # tag from the list provided and automatically join groups on twitter and other platforms that are hosting these discussions.
 
 #clicky.ui.basic.modal
