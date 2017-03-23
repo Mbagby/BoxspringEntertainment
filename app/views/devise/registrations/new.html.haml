@@ -37,9 +37,9 @@
         .field
           #colorFix.ui.left.input
             = f.text_field :employee_id, :placeholder=>"Employee ID"
-        .field
-          #colorFix.ui.left.input
-            = f.select :user_type, User.user_types.keys.map { |w| [w.humanize, w] }, class:"ui fluid dropdown"
+        -# .field
+        -#   #colorFix.ui.left.input
+        -#     = f.select :user_type, User.user_types.keys.map { |w| [w.humanize, w] }, class:"ui fluid dropdown"
       .panel.panel-default.credit-card-box
       .panel-heading.display-table
         .row.display-tr

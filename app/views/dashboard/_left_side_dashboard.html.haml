@@ -1,0 +1,81 @@
+.side-header
+  = link_to "Dashboard", "javascript://", class:"title-header"
+  %span EDIT PREFERENCES
+#accordion.panel-group
+  #panel1.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a.collapsed{"data-target" => "#collapseOne", "data-toggle" => "collapse", :href => "#collapseOne"}
+          %strong PERMISSIONS
+          |
+          manage
+          |
+          set
+    #collapseOne.panel-collapse.collapse
+      .panel-body Permissions
+  #panel2.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-target" => "#collapseTwo", "data-toggle" => "collapse", :href => dashboard_videos_path, class: params[:action] == "videos" ? "" : "collapsed"}
+          %strong VIDEOS
+          |
+          manage
+          |
+          show activity
+    #collapseTwo.panel-collapse.collapse{class: params[:action] == "videos" ? "in" : ""}
+      .panel-body Blogs
+  #panel3.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a.collapsed{"data-target" => "#collapseThree", "data-toggle" => "collapse", :href => "#collapseThree"}
+          %strong GROUPS
+          |
+          manage
+          |
+          show activity
+    #collapseThree.panel-collapse.collapse
+      .panel-body Groups
+  #panel4.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-target" => "#collapseFour", "data-toggle" => "collapse", :href => dashboard_forum_path, class: params[:action] == "forum" ? "" : "collapsed"}
+          %strong FORUMS
+          |
+          manage
+          |
+          show activity
+    #collapseFour.panel-collapse.collapse{class: params[:action] == "forum" ? "in" : ""}
+      .panel-body Forums
+  #panel5.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a.collapsed{"data-target" => "#collapseFive", "data-toggle" => "collapse", :href => "#collapseFive"}
+          %strong LANGUAGES
+          |
+          manage
+          |
+          set
+    #collapseFive.panel-collapse.collapse
+      .panel-body Languages
+  #panel6.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-target" => "#collapseSix", "data-toggle" => "collapse", :href => dashboard_asset_libraries_path, class: params[:action]=="asset_libraries" ? "" : "collapsed"}
+          %strong ASSETS LIBRARIES
+          |
+          manage
+          |
+          set
+    #collapseSix.panel-collapse.collapse{class: params[:action]=="asset_libraries" ? "in" : ""}
+      .panel-body Assets Libraries
+  #panel7.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a.collapsed{"data-target" => "#collapseSeven", "data-toggle" => "collapse", :href => "#collapseSeven"}
+          %strong MEDIA GALLERIES
+          |
+          manage
+          |
+          set
+    #collapseSeven.panel-collapse.collapse
+      .panel-body Media Galleries

@@ -6,8 +6,6 @@
 # avatar 		        :text
 # user_type         :integer
 
-
-
 ActiveAdmin.register User do
   permit_params :first_name, :last_name, :email, :password, :password_confirmation, :company_id, :employee_id, :avatar, :user_type
 

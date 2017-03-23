@@ -9,6 +9,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   %body
     .container-test
+      = flash_messages
       = render "shared/dashboard_menu"
       = yield
     = render "shared/footer"

@@ -6,7 +6,10 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
   enum user_type:[:employeer, :hr_manager]
+
   belongs_to :plan
+  has_many :asset_libraries, dependent: :destroy
+
   def name
     [first_name, last_name].join(' ')
   end

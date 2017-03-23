@@ -69,8 +69,9 @@ gem 'stripe-rails'
 gem 'mailboxer'
 gem 'newrelic_rpm'
 
-gem 'will_paginate'
-gem 'will_paginate-bootstrap'
+# gem 'will_paginate'
+# gem 'will_paginate-bootstrap'
+# gem 'will_paginate', "3.0.pre2"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
 
     member do
-      get :message_board      
+      get :message_board
     end
 
     resources :messages, shallow:true, only: [:index, :show, :new, :create] do
@@ -29,17 +29,26 @@ Rails.application.routes.draw do
   resources :users, only: [:update] do
     member do
       get :profile
-      get :dashboard
     end
   end
 
-  get "/home/contact" => "home#contact"
+  namespace :dashboard do
+    get :index
+    get :forum
+    get :videos
 
-  get "/quizes", to: "quizes#index"
+    get :asset_libraries
+    post :upload_file
+    delete :destroy_file
+  end
+  # resources :asset_libraries, only: [:index, :create, :delete]
   #
   # devise_scope :user do
   #   root to: "devise/sessions#new"
   # end
+
+  get "/home/contact" => "home#contact"
+  get "/quizes", to: "quizes#index"
   get :select_box, to: "home#select_box"
   get :set_card_info, to: "home#set_card_info"
   get :contact, to: "home#contact"
