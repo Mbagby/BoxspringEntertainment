@@ -3,7 +3,7 @@
     .following.bar
       .ui.large.secondary.network.menu
         #browse.view-ui.item.fitted
-          .ui.simple.dropdown.item
+          .ui.simple.dropdown.item{style:"min-width:200px;"}
             %i.sidebar.icon
             Browse
             .menu{style:"margin-top:0px;"}
@@ -16,7 +16,7 @@
               .active.ui.side
                 = link_to root_path do
                   = image_tag "BoxSpringLogo.jpg", class: "img-responsive", width:100, height:100
-        #rightMenu.right.menu
+        #rightMenu.right.menu{style:"min-width:200px;"}
           .ui.simple.dropdown.item
             %i.user.icon
             = current_user.first_name

@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
 	before_action :authenticate_user!
 	before_action :check_user_type
+	
 	def index
   end
 
@@ -9,6 +10,7 @@ class DashboardController < ApplicationController
 
   def videos
   end
+
 	def asset_libraries
 	end
 

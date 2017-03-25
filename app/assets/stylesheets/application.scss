@@ -28,16 +28,33 @@
 
 body {
 	color: #7C7D7E;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 	padding-top: 100px;
 }
-
+#topMenu{
+	.ui.menu .ui.dropdown .menu > .item{
+		color:#7C7D7E !important;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+	}
+}
 @media screen and (max-width: 768px) and (min-width: 375px) {
 		body{
 			padding-top: 60px;
 			#entire{
 				#topMenu{
+					.ui.menu .ui.dropdown .menu > .item{
+						color:#7C7D7E !important;
+					}
 					.following{
+						.menu{
+							.item{
+								color:#7C7D7E !important;
+								font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+								&:hover{
+									color:#7C7D7E !important;
+								}
+							}
+						}
 						.logo{
 							.sides{
 								.side{
@@ -79,8 +96,9 @@ body {
 	.container{
 	  padding-left: 10px;
 	  padding-left: 10px;
-	}a{
-	color: black;
+	}
+	a{
+		color:#7C7D7E;
 	}
 }
 
@@ -123,6 +141,7 @@ body {
 		margin-bottom: 20px;
 		margin-top: 25px;
 		font-weight: 200;
+		color:#7C7D7E;
 	}
 	p{
 		font-weight: 200;
