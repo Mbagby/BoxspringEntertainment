@@ -152,3 +152,20 @@
     padding-bottom: 100px;
   }
 }
+
+
+
+
+.disclaimer-page{
+  margin-bottom: 50px;
+  .parent-sentence{
+    margin-top:10px;
+    .parent-sentence{
+      margin-left: 20px;
+    }
+    p{
+      margin-left: 20px;
+      text-align: justify;
+    }
+  }
+}
