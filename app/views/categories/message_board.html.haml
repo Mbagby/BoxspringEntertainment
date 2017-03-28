@@ -11,7 +11,7 @@
           %textarea#summernote.form-control{name:"body"}
         .form-group
           = submit_tag "Post Message", class:"btn btn-primary"
-  .row
+  .row{style:"margin-bottom:50px;"}
     - @messages.each do |message|
       .row.message-list
         .col-sm-1.col-xs-2

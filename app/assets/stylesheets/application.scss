@@ -39,6 +39,14 @@ body {
 	.pagination{
 		margin: 0px;
 	}
+	.btn-primary {
+    color: #fff;
+    background-color: darkgray;
+    border-color: darkgray;
+		&:hover{
+			background-color: gray;
+		}
+	}
 }
 #topMenu{
 	.ui.menu .ui.dropdown .menu > .item{

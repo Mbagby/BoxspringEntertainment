@@ -41,7 +41,7 @@
                   = link_to dashboard_destroy_file_path(id:asset.id), method: :delete, data:{confirm: "Are you sure"} do
                     %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
                     Delete
-        = will_paginate @asset_libraries, renderer: BootstrapPagination::Rails
+        -# = will_paginate @asset_libraries, renderer: BootstrapPagination::Rails
 :javascript
   // We can attach the `fileselect` event to all file inputs on the page
   $(document).on('change', ':file', function() {
