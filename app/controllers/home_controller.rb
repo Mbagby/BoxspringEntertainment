@@ -10,6 +10,7 @@ class HomeController < ApplicationController
   end
 
   def about_us
+    render :layout => false
   end
 
   def disclaimer

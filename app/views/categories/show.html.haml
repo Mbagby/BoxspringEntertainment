@@ -8,7 +8,7 @@
     %div
       = image_tag @category.snap_shot.url, class: "img-responsive", height: 800, width:"100%" if @category.snap_shot.present?
       #previewNow
-        %button#preview.ui.red.small.button{class: @category.title == "Communication" ? "disabled" : ""}
+        %button#preview.ui.red.small.button.disabled
           Coming Soon
       #episodeRow
         - @episodes.each do |episode|
