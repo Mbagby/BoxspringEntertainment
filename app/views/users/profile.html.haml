@@ -6,11 +6,11 @@
       .col-md-3
         .text-center
           - if current_user.avatar.present?
-            = image_tag current_user.avatar.url, width: 200, height: 200
+            = image_tag current_user.avatar.url, width: 200, height: 200, id:"user_avatar"
           - else
-            = image_tag "avatar.png", width: 200, height: 200
+            = image_tag "avatar.png", width: 200, height: 200, id:"user_avatar"
           %h6 Upload a different photo...
-          =f.file_field :avatar, class: "form-control"
+          =f.file_field :avatar, class: "form-control", onchange:"readURL(this);"
       / edit form column
       .col-md-9.personal-info
         - if flash.count > 0
@@ -54,3 +54,18 @@
             = f.submit "Save Changes", class: "btn btn-primary"
             %span
             = link_to "Cancel", root_path, class: "btn btn-default"
+:javascript
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#user_avatar')
+                .attr('src', e.target.result)
+                .width(200)
+                .height(200);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
