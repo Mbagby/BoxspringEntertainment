@@ -17,6 +17,9 @@ class Category < ActiveRecord::Base
 	has_many :seasons, dependent: :destroy
 	has_many :episodes, dependent: :destroy
 	has_many :messages, as: :messageable
+	has_many :asset_libraries
+	has_one :category_option
+	
 	mount_uploader :snap_shot, SnapShotUploader
 	mount_uploader :banner, BannerUploader
 end

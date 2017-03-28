@@ -14,6 +14,13 @@ class MessagesController < ApplicationController
 		redirect_to message_board_category_path(@category)
   end
 
+	def destroy
+		@category = Category.find(params[:category_id])
+		@message = @category.messages.find(params[:id])
+		@message.destroy
+		redirect_to message_board_category_path(@category)
+	end
+
   private
     def get_category
       @category = Category.find(params[:category_id])

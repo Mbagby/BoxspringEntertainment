@@ -21,4 +21,11 @@ class EpisodesController < ApplicationController
 		redirect_to episode_path(@episode)
 	end
 
+	def remove_comment
+		@episode = Episode.find(params[:id])
+		@comment = @episode.comments.find(params[:comment_id])
+		@comment.destroy
+		redirect_to episode_path(@episode)
+	end
+
 end

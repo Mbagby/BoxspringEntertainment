@@ -27,6 +27,7 @@
               %span.text-muted
                 sent
                 = message.messaged_time_string
+              = link_to "Remove", message_path(message, category_id:@category.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm pull-right", style:"margin-top:-5px;" if message.user.id == current_user.id
             .panel-body
               = raw message.body
 / Modal

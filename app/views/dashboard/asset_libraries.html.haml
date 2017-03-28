@@ -7,29 +7,41 @@
         %label alerts - messages - ad space
     .row.assets_libraries-content
       %h3{style:"text-align:center;padding-top:20px;"} Asset Libraries
-      = form_tag dashboard_upload_file_path, multipart:true do
-        .col-lg-6.col-sm-6.col-12
-          .input-group
-            %label.input-group-btn
-              %span.btn.btn-primary
-                Browse…
-                %input{:multiple => "multiple", :style => "display: none;", :type => "file", name:"file", required: true}/
-            %input.form-control{:readonly => "readonly", :type => "text"}/
-          %span.help-block
-            Try selecting one or more files and watch the feedback
-        = submit_tag "Upload", class: "btn btn-primary"
+      = form_tag dashboard_upload_file_path, multipart:true, class:"form-inline" do
+        .row
+          .col-md-12
+            .form-group
+              %label{:for => "category"} Category
+              = select_tag :category, options_from_collection_for_select(Category.all, "id", "title", 1), class: "form-control"
+            .form-group
+              .input-group
+                %label.input-group-btn
+                  %span.btn.btn-primary
+                    Browse…
+                    %input{:multiple => "multiple", :style => "display: none;", :type => "file", name:"file", required: true}/
+                %input.form-control{:readonly => "readonly", :type => "text"}/
+            = submit_tag "Upload", class: "btn btn-primary"
     .row.assets_libraries-content
       .col-sm-12
         %table.table.table-responsive.table-striped.table-bordered
-          -current_user.asset_libraries.each do |asset|
+          %thead
             %tr
-              %td= link_to File.basename(asset.file.path), asset.file.url, target: "_blank"
-
-              %td= asset.created_at.strftime("%b %dth %Y")
-              %td
-                = link_to dashboard_destroy_file_path(id:asset.id), method: :delete, data:{confirm: "Are you sure"} do
-                  %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
-                  Delete
+              %th File Name
+              %th Category
+              %th Uploaded At
+              %th Manage
+          %tbody
+            - @asset_libraries.each do |asset|
+              %tr
+                %td= link_to File.basename(asset.file.path), asset.file.url, target: "_blank"
+                %td
+                  = link_to asset.category.title, category_path(asset.category) if asset.category.present?
+                %td= asset.created_at.strftime("%b %dth %Y")
+                %td
+                  = link_to dashboard_destroy_file_path(id:asset.id), method: :delete, data:{confirm: "Are you sure"} do
+                    %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+                    Delete
+        = will_paginate @asset_libraries, renderer: BootstrapPagination::Rails
 :javascript
   // We can attach the `fileselect` event to all file inputs on the page
   $(document).on('change', ':file', function() {

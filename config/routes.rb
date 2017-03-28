@@ -12,6 +12,7 @@ Rails.application.routes.draw do
           member do
             get :video_modal
             post :comment
+            delete :remove_comment
           end
           resources :quizes, shallow: true
         end
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
       get :message_board
     end
 
-    resources :messages, shallow:true, only: [:index, :show, :new, :create] do
+    resources :messages, shallow:true, only: [:index, :show, :new, :create, :destroy] do
     end
   end
 
@@ -40,6 +41,9 @@ Rails.application.routes.draw do
     get :asset_libraries
     post :upload_file
     delete :destroy_file
+
+    get :permission
+    post :update_permission
   end
   # resources :asset_libraries, only: [:index, :create, :delete]
   #
@@ -51,7 +55,7 @@ Rails.application.routes.draw do
   get "/quizes", to: "quizes#index"
   get :select_box, to: "home#select_box"
   get :set_card_info, to: "home#set_card_info"
-  
+
   get :contact, to: "home#contact"
   get :about_us, to: "home#about_us"
   get :disclaimer, to: "home#disclaimer"

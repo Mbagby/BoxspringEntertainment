@@ -1,0 +1,16 @@
+.dashboard-page
+  .col-sm-4
+    = render "left_side_dashboard"
+  .col-sm-8
+    .row
+      .col-sm-12.content-header
+        %label alerts - messages - ad space
+    .row.permision-content
+      .col-sm-12
+        %h1.forum-title Permission
+      - Category.all.each do |cat|
+        .row
+          .col-sm-4.permission-item
+            = link_to message_board_category_path(cat) do
+              %h4= cat.title
+          .col-sm-8.permission-item

@@ -5,13 +5,13 @@
   #panel1.panel.panel-default
     .panel-heading
       %h4.panel-title
-        %a.collapsed{"data-target" => "#collapseOne", "data-toggle" => "collapse", :href => "#collapseOne"}
+        %a.collapsed{"data-target" => "#collapseOne", "data-toggle" => "collapse", :href => dashboard_permission_path, class: params[:action] == "permission" ? "" : "collapsed"}
           %strong PERMISSIONS
           |
           manage
           |
           set
-    #collapseOne.panel-collapse.collapse
+    #collapseOne.panel-collapse.collapse{class: params[:action] == "permission" ? "in" : ""}
       .panel-body Permissions
   #panel2.panel.panel-default
     .panel-heading

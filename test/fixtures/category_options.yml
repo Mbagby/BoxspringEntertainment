@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: one
+  message_board: false
+  comments_section: 
+
+two:
+  category: two
+  message_board: false
+  comments_section: 

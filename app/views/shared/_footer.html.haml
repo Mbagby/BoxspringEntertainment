@@ -1,10 +1,13 @@
 %footer.footer
   .container
-    .col-sm-3.col-xs-4
-      = link_to "About Us", about_us_path
-    .col-sm-3.col-xs-4
-      = link_to "Contact", contact_path
-    .col-sm-3.col-xs-4
-      = link_to "Disclaimer", disclaimer_path
-    .col-sm-3.hidden-sm.hidden-xs
-      %label Boxspring Ent, H2H Company © 2017
+    .row
+      .col-md-3.col-sm-2
+      .col-md-6.col-sm-8.col-xs-12{style:"text-align:center"}
+        = link_to "About Us", about_us_path
+        %label{style:"padding-left:10px;padding-right:10px;"}= "|"
+        = link_to "Contact", contact_path
+        %label{style:"padding-left:10px;padding-right:10px;"}= "|"
+        = link_to "Disclaimer", disclaimer_path
+    .row
+      .col-md-12.hidden-xs{style:"text-align:center"}
+        %small Boxspring Channel & H2H Corporation LLC  All Rights Reserved © 2017

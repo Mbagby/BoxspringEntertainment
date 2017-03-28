@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323141755) do
+ActiveRecord::Schema.define(version: 20170328175042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(version: 20170323141755) do
   create_table "asset_libraries", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
     t.index ["user_id"], name: "index_asset_libraries_on_user_id", using: :btree
   end
 
@@ -63,6 +64,17 @@ ActiveRecord::Schema.define(version: 20170323141755) do
     t.datetime "updated_at",  null: false
     t.string   "snap_shot"
     t.string   "banner"
+  end
+
+  create_table "category_options", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.boolean  "message_board"
+    t.boolean  "comment_section"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["category_id"], name: "index_category_options_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_category_options_on_user_id", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -261,6 +273,8 @@ ActiveRecord::Schema.define(version: 20170323141755) do
   end
 
   add_foreign_key "asset_libraries", "users"
+  add_foreign_key "category_options", "categories"
+  add_foreign_key "category_options", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
