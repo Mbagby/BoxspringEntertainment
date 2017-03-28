@@ -1,51 +1,52 @@
-.container.message-board-page
-  .row
-    .col-sm-12
-      %h1
-        TOPIC:
-        = @category.title
-    .col-sm-12
-      = form_tag category_messages_path(@category) do
-        .form-group
-          %label.control-label{:for => "message-text"} Message:
-          %textarea#summernote.form-control{name:"body"}
-        .form-group
-          = submit_tag "Post Message", class:"btn btn-primary"
-  .row{style:"margin-bottom:50px;"}
-    - @messages.each do |message|
-      .row.message-list
-        .col-sm-1.col-xs-2
-          .thumbnail
-            - if current_user.avatar.present?
-              = image_tag message.user.avatar.url, class:"img-responsive user-photo"
-            - else
-              = image_tag "avatar.png", class:"img-responsive user-photo"
-        .col-sm-10.col-xs-8
-          .panel.panel-default
-            .panel-heading
-              %strong= message.user.name
-              %span.text-muted
-                sent
-                = message.messaged_time_string
-              = link_to "Remove", message_path(message, category_id:@category.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm pull-right", style:"margin-top:-5px;" if message.user.id == current_user.id
-            .panel-body
-              = raw message.body
-/ Modal
-#post_message.modal.fade{"aria-labelledby" => "post_message_label", :role => "dialog", :tabindex => "-1"}
-  .modal-dialog{:role => "document", style:"margin-top: 100px;"}
-    .modal-content
-      .modal-header
-        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-          %span{"aria-hidden" => "true"} ×
-        %h4#post_message_label.modal-title New message
-      .modal-body
+- if @category.category_option.present? and @category.category_option.message_board
+  .container.message-board-page
+    .row
+      .col-sm-12
+        %h1
+          TOPIC:
+          = @category.title
+      .col-sm-12
         = form_tag category_messages_path(@category) do
           .form-group
             %label.control-label{:for => "message-text"} Message:
-            %textarea.summernote.form-control
-      .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        %button.btn.btn-primary{:type => "button"} Send message
+            %textarea#summernote.form-control{name:"body"}
+          .form-group
+            = submit_tag "Post Message", class:"btn btn-primary"
+    .row{style:"margin-bottom:50px;"}
+      - @messages.each do |message|
+        .row.message-list
+          .col-sm-1.col-xs-2
+            .thumbnail
+              - if current_user.avatar.present?
+                = image_tag message.user.avatar.url, class:"img-responsive user-photo"
+              - else
+                = image_tag "avatar.png", class:"img-responsive user-photo"
+          .col-sm-10.col-xs-8
+            .panel.panel-default
+              .panel-heading
+                %strong= message.user.name
+                %span.text-muted
+                  sent
+                  = message.messaged_time_string
+                = link_to "Remove", message_path(message, category_id:@category.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm pull-right", style:"margin-top:-5px;" if message.user.id == current_user.id
+              .panel-body
+                = raw message.body
+  / Modal
+  #post_message.modal.fade{"aria-labelledby" => "post_message_label", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{:role => "document", style:"margin-top: 100px;"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
+          %h4#post_message_label.modal-title New message
+        .modal-body
+          = form_tag category_messages_path(@category) do
+            .form-group
+              %label.control-label{:for => "message-text"} Message:
+              %textarea.summernote.form-control
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary{:type => "button"} Send message
 
 :javascript
   $(document).ready(function() {

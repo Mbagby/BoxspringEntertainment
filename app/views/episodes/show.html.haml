@@ -4,41 +4,43 @@
     - if quiz.episode_id == @episode.episode_id
       = link_to quize_path(quiz) do
         %h1#formatHeader= quiz.title
-  - @episode.comments.each do |comment|
-    .row.comment-list
-      .col-sm-1
-        .thumbnail
-          - if current_user.avatar.present?
-            = image_tag comment.user.avatar.url, class:"img-responsive user-photo"
-          - else
-            = image_tag "avatar.png", class:"img-responsive user-photo"
-      .col-sm-8
-        .panel.panel-default
-          .panel-heading
-            %strong= comment.user.name
-            %span.text-muted
-              commented
-              = comment.commented_time_string
-            .stars.starrr.pull-right{"data-rating" => comment.rate, style:"margin:0px;"}
-          .panel-body
-            = comment.body
-          - if comment.user.id == current_user.id
-            .panel-footer{style:"text-align:right;"}
-              = link_to "Remove",remove_comment_episode_path(@episode, comment_id:comment.id), method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-sm btn-danger"
 
-  .row{:style => "margin-top:40px;margin-bottom:50px;"}
-    .col-md-12
-      .well.well-sm
-        .text-right
-          %a#open-review-box.btn.btn-success.btn-green{:href => "#reviews-anchor"} Leave a Review
-        #post-review-box.row{:style => "display:none;"}
-          .col-md-12
-            = form_tag comment_episode_path(@episode) do
-              %input#ratings-hidden{:name => "rating", :type => "hidden"}/
-              %textarea#new-review.form-control.animated{:cols => "50", :name => "comment", :placeholder => "Enter your review here...", :rows => "5"}
-              .text-right
-                .stars.starrr{"data-rating" => "0"}
-                %a#close-review-box.btn.btn-danger.btn-sm{:href => "#", :style => "display:none; margin-right: 10px;"}
-                  %span.glyphicon.glyphicon-remove>
-                  Cancel
-                %button.btn.btn-success.btn-lg{:type => "submit"} Save
+  - if @category.category_option.present? and @category.category_option.comment_section
+    - @episode.comments.each do |comment|
+      .row.comment-list
+        .col-sm-1
+          .thumbnail
+            - if current_user.avatar.present?
+              = image_tag comment.user.avatar.url, class:"img-responsive user-photo"
+            - else
+              = image_tag "avatar.png", class:"img-responsive user-photo"
+        .col-sm-8
+          .panel.panel-default
+            .panel-heading
+              %strong= comment.user.name
+              %span.text-muted
+                commented
+                = comment.commented_time_string
+              .stars.starrr.pull-right{"data-rating" => comment.rate, style:"margin:0px;"}
+            .panel-body
+              = comment.body
+            - if comment.user.id == current_user.id
+              .panel-footer{style:"text-align:right;"}
+                = link_to "Remove",remove_comment_episode_path(@episode, comment_id:comment.id), method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-sm btn-danger"
+
+    .row{:style => "margin-top:40px;margin-bottom:50px;"}
+      .col-md-12
+        .well.well-sm
+          .text-right
+            %a#open-review-box.btn.btn-success.btn-green{:href => "#reviews-anchor"} Leave a Review
+          #post-review-box.row{:style => "display:none;"}
+            .col-md-12
+              = form_tag comment_episode_path(@episode) do
+                %input#ratings-hidden{:name => "rating", :type => "hidden"}/
+                %textarea#new-review.form-control.animated{:cols => "50", :name => "comment", :placeholder => "Enter your review here...", :rows => "5"}
+                .text-right
+                  .stars.starrr{"data-rating" => "0"}
+                  %a#close-review-box.btn.btn-danger.btn-sm{:href => "#", :style => "display:none; margin-right: 10px;"}
+                    %span.glyphicon.glyphicon-remove>
+                    Cancel
+                  %button.btn.btn-success.btn-lg{:type => "submit"} Save

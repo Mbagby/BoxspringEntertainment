@@ -5,12 +5,48 @@
     .row
       .col-sm-12.content-header
         %label alerts - messages - ad space
-    .row.permision-content
-      .col-sm-12
+    .row.permission-content
+      .col-sm-12{style:"margin-top:30px;margin-bottom:20px;"}
         %h1.forum-title Permission
       - Category.all.each do |cat|
-        .row
-          .col-sm-4.permission-item
+        .row{style:"margin-top:20px;margin-left:3px;"}
+          .col-sm-4.permission-item.category-title-item
             = link_to message_board_category_path(cat) do
               %h4= cat.title
           .col-sm-8.permission-item
+            .row
+              .col-sm-6
+                %label Message Board
+              .col-sm-6
+                %label.switch
+                  - if cat.category_option.present?
+                    %input.message-board{:type => "checkbox",name:"message_board", data:{category:cat.id}, class:"mesage-board-#{cat.id}", checked: cat.category_option.message_board}/
+                  - else
+                    %input.message-board{:type => "checkbox",name:"message_board", data:{category:cat.id}, class:"mesage-board-#{cat.id}"}/
+                  .slider.round
+            .row
+              .col-sm-6
+                %label Comment Section
+              .col-sm-6
+                %label.switch
+                  - if cat.category_option.present?
+                    %input.comment-section{:type => "checkbox",name:"comment_section", data:{category:cat.id}, class: "comment-section-#{cat.id}", checked: cat.category_option.comment_section}/
+                  - else
+                    %input.comment-section{:type => "checkbox",name:"comment_section", data:{category:cat.id}, class: "comment-section-#{cat.id}"}/
+                  .slider.round
+
+
+:javascript
+  $(".switch input").change(function(){
+    var cat_id = $(this).data("category");
+    var action_url = "/dashboard/update_permission"
+    var message_board_status = $(".mesage-board-"+cat_id).prop('checked');
+    var comment_section_status = $(".comment-section-"+cat_id).prop('checked');
+    $.post(action_url, {category_id:cat_id, message_board: message_board_status, comment_section: comment_section_status}, function(data){
+      console.log(data);
+    })
+  });
+
+  $(".comment-section").change(function(){
+
+  });
