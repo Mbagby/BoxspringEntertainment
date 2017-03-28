@@ -3,7 +3,7 @@
   .select-box{
     a{
       color: #7C7D7E;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;      
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     }
     .card{
       background-color: white;
@@ -97,13 +97,13 @@
   }
 }
 .contact-page{
-  width: 50%;
-  height: 35%;
+  // width: 50%;
+  // height: 35%;
   background-color: #EDEDED;
   border-radius: 5px;
   position: absolute;
   top: 20%;
-  left: 25%;
+  // left: 25%;
   p{
     padding-left: 10%;
     padding-right: 10%;
@@ -131,5 +131,24 @@
       }p{
       text-align: center;
     }
+  }
+}
+
+
+.about-us-page{
+  background-color: #353535;
+  margin-top:280px;
+  h5{
+    text-align: center;
+    color: #C7C7C7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+  p{
+    text-align: center;
+    color: #C7C7C7;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  }
+  p.last-item{
+    padding-bottom: 100px;
   }
 }

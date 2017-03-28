@@ -26,5 +26,5 @@
               = link_to "Dashboard", dashboard_index_path, class: "item"
               = link_to "Profile", profile_user_path(current_user), class: "item"
               .item Assignments
-              .item Settings
+              = link_to "About US", about_us_path, class: "item"
               = link_to "Logout", destroy_user_session_path, method: :delete, class: "item"

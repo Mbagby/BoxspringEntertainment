@@ -9,6 +9,12 @@ class HomeController < ApplicationController
     render :layout => false
   end
 
+  def about_us
+  end
+
+  def disclaimer
+    render :layout => false
+  end
   # POST /home/hook
   protect_from_forgery except: :hook
   def hook

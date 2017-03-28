@@ -51,7 +51,11 @@ Rails.application.routes.draw do
   get "/quizes", to: "quizes#index"
   get :select_box, to: "home#select_box"
   get :set_card_info, to: "home#set_card_info"
+  
   get :contact, to: "home#contact"
+  get :about_us, to: "home#about_us"
+  get :disclaimer, to: "home#disclaimer"
+
   post "/home/hook" => "home#hook"
   root to: "categories#index"
 end
