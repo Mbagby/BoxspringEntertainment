@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
+	# skip_before_action :verify_authenticity_token, only: [:upload_image]
 	def index
   end
 
@@ -21,6 +22,13 @@ class UsersController < ApplicationController
 			end
 		end
   end
+
+	# POST user/:id/upload_image
+	def upload_image
+		@user = current_user
+		@user.update_attributes(avatar: params[:avatar]);
+		render json: {status: "success"}
+	end
 
 	private
   def user_params

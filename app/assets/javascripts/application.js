@@ -16,6 +16,7 @@
 // require turbolinks
 //= require jquery.slick
 //= require summernote
+//= require jquery.remotipart
 //= require_tree .
 // Loads all Semantic javascripts
 

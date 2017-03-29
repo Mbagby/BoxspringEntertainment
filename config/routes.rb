@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :users, only: [:update] do
     member do
       get :profile
+      post :upload_image
     end
   end
 

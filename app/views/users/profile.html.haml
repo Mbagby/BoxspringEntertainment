@@ -2,7 +2,7 @@
   %h1 Edit Profile
   %hr/
   .row
-    = form_for(current_user, url: user_path(current_user), html:{class:"form-horizontal"}) do |f|
+    = form_tag(upload_image_user_path(current_user), remote: true, authenticity_token:true, multipart: true, class:"form-horizontal", id:"upload_image_form") do |f|
       .col-md-3
         .text-center
           - if current_user.avatar.present?
@@ -10,15 +10,10 @@
           - else
             = image_tag "avatar.png", width: 200, height: 200, id:"user_avatar"
           %h6 Upload a different photo...
-          =f.file_field :avatar, class: "form-control", onchange:"readURL(this);"
+          = file_field_tag :avatar, class: "form-control", onchange:"readURL(this);"
       / edit form column
-      .col-md-9.personal-info
-        - if flash.count > 0
-          .alert.alert-info.alert-dismissable
-            %a.panel-close.close{"data-dismiss" => "alert"} ×
-            %i.fa.fa-coffee
-            - flash.each do |key, value|
-              = content_tag :div, value, class: "flash #{key}"
+    = form_for(current_user, url: user_path(current_user), html:{class:"form-horizontal"}) do |f|
+      .col-md-9.personal-info        
         %h3 Personal info
         .form-group
           = f.label :email, class: "col-lg-3 control-label"
@@ -67,5 +62,21 @@
         };
 
         reader.readAsDataURL(input.files[0]);
+        $("#upload_image_form").submit();
+        //var form_data = new FormData(form[0]);
+        //var action_url = form.attr('action');
+        /*
+        $.ajax({
+          method: "POST",
+          url: action_url,
+          cache: false,
+          contentType: false,
+          processData: false,
+          data: form_data
+        })
+        .done(function( msg ) {
+          alert( "Data Saved: " + msg );
+        });
+        */
     }
   }
