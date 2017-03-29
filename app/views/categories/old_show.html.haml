@@ -1,0 +1,54 @@
+= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"
+.banner
+  %div
+#content
+  = link_to category_path(@category) do
+    %h1#formatHeaderShow= @category.title
+  .seasonShow
+    %div
+      = image_tag @category.snap_shot.url, class: "img-responsive", height: 800, width:"100%" if @category.snap_shot.present?
+      #previewNow
+        %button#preview.ui.red.small.button.disabled
+          Coming Soon
+      #episodeRow
+        - @episodes.each do |episode|
+          - if episode.series_id == @season.series_id
+            -# = link_to video_modal_episode_path(episode), remote: true, class: "episode-video-modal-link" do
+            = link_to episode_path(episode), class: "episode-show-link" do
+              .square
+                = image_tag episode.snap_shot.url, class:"img-responsive", height:145, width: "100%" if episode.snap_shot.present?
+                .belowText
+                  .episode
+                  .episode-title
+                    = episode.title
+#topicShow
+#tools
+  %h1#toolsHeader TOOLS
+  %p Thoughfully curated, the following audio books, podcasts, games, VR short films, and immersive content pieces ought to provide any type of learner an engaging way to learn more about this subject.
+  - if @category.category_id.to_i == 3
+    = image_tag "SocMePic.jpg", :class => 'SocMe'
+    = image_tag "LinkedInPic.jpg", :class => 'LinkedIn'
+  - elsif @category.category_id.to_i != 3
+#convo
+  - if @category.category_option.present? and @category.category_option.message_board
+    = link_to message_board_category_path(@category) do
+      %h1 Join The Conversation
+  - else
+    %h1 Join The Conversation
+  %p Many of us enjoy discussion what we are learning with others, so we've created a safe are for engagement. Please talk to your manager if this area requires "unlocking". In addition, on your own person platforms you can use the # tag from the list provided and automatically join groups on twitter and other platforms that are hosting these discussions.
+
+#clicky.ui.basic.modal
+  %i.close.icon
+  .header
+    - if @category.category_id == 1
+      The HR Files
+      %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :mozallowfullscreen => "", :msallowfullscreen => "", :oallowfullscreen => "", :scrolling => "no", :src => "//iframe.dacast.com/b/83869/f/365340", :webkitallowfullscreen => "", :width => "854"}
+    - elsif @category.category_id == 3
+      Hacks
+    - elsif @category.category_id == 4
+      Sea Knot
+    - elsif @category.category_id == 2
+      Communication
+
+#episode_video.ui.basic.modal
+=render "modals"
