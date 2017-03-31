@@ -5,7 +5,7 @@
       = link_to quize_path(quiz) do
         %h1#formatHeader= quiz.title
 
-  - if @category.category_option.present? and @category.category_option.comment_section
+  - if @category.category_option(current_user).present? and @category.category_option(current_user).comment_section
     - @episode.comments.each do |comment|
       .row.comment-list
         .col-sm-1

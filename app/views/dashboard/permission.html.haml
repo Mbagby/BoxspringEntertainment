@@ -9,6 +9,7 @@
       .col-sm-12{style:"margin-top:30px;margin-bottom:20px;"}
         %h1.forum-title Permission
       - Category.all.each do |cat|
+        - category_option = cat.category_option(current_user)
         .row{style:"margin-top:20px;margin-left:3px;"}
           .col-sm-4.permission-item.category-title-item
             = link_to message_board_category_path(cat) do
@@ -19,8 +20,8 @@
                 %label Message Board
               .col-sm-6
                 %label.switch
-                  - if cat.category_option.present?
-                    %input.message-board{:type => "checkbox",name:"message_board", data:{category:cat.id}, class:"mesage-board-#{cat.id}", checked: cat.category_option.message_board}/
+                  - if category_option.present?
+                    %input.message-board{:type => "checkbox",name:"message_board", data:{category:cat.id}, class:"mesage-board-#{cat.id}", checked: category_option.message_board}/
                   - else
                     %input.message-board{:type => "checkbox",name:"message_board", data:{category:cat.id}, class:"mesage-board-#{cat.id}"}/
                   .slider.round
@@ -29,8 +30,8 @@
                 %label Comment Section
               .col-sm-6
                 %label.switch
-                  - if cat.category_option.present?
-                    %input.comment-section{:type => "checkbox",name:"comment_section", data:{category:cat.id}, class: "comment-section-#{cat.id}", checked: cat.category_option.comment_section}/
+                  - if category_option.present?
+                    %input.comment-section{:type => "checkbox",name:"comment_section", data:{category:cat.id}, class: "comment-section-#{cat.id}", checked: category_option.comment_section}/
                   - else
                     %input.comment-section{:type => "checkbox",name:"comment_section", data:{category:cat.id}, class: "comment-section-#{cat.id}"}/
                   .slider.round

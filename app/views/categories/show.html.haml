@@ -8,7 +8,7 @@
     .col-md-12{style:"padding:0px;"}
       = image_tag @category.snap_shot.url, class: "img-responsive", height: 800, width:"100%" if @category.snap_shot.present?
     .col-md-10.col-md-offset-1{style:"margin-top:-13%"}
-      .row
+      .row.episode-slick{style:"margin-left: -15px; margin-right: -15px;"}
         - @episodes.each do |episode|
           - if episode.series_id == @season.series_id
             .col-md-3.col-sm-3.col-xs-3
@@ -25,18 +25,24 @@
   .row
     #tools
       %h1#toolsHeader TOOLS
-      %p Thoughfully curated, the following audio books, podcasts, games, VR short films, and immersive content pieces ought to provide any type of learner an engaging way to learn more about this subject.
+      %p
+        Thoughfully curated, the following audio books, podcasts, games, VR short films,
+        and immersive content pieces ought to provide any type of learner an engaging way to learn more about this subject.
       - if @category.category_id.to_i == 3
         = image_tag "SocMePic.jpg", :class => 'SocMe'
         = image_tag "LinkedInPic.jpg", :class => 'LinkedIn'
       - elsif @category.category_id.to_i != 3
     #convo
-      - if @category.category_option.present? and @category.category_option.message_board
+      - if @category.category_option(current_user).present? and @category.category_option(current_user).message_board
         = link_to message_board_category_path(@category) do
           %h1 Join The Conversation
       - else
         %h1 Join The Conversation
-      %p Many of us enjoy discussion what we are learning with others, so we've created a safe are for engagement. Please talk to your manager if this area requires "unlocking". In addition, on your own person platforms you can use the # tag from the list provided and automatically join groups on twitter and other platforms that are hosting these discussions.
+      %p
+        Many of us enjoy discussion what we are learning with others, so we've created a safe are for engagement.
+        Please talk to your manager if this area requires "unlocking". In addition, on your own person platforms
+        you can use the # tag from the list provided and automatically join groups on twitter and other platforms
+        that are hosting these discussions.
 
     #clicky.ui.basic.modal
       %i.close.icon

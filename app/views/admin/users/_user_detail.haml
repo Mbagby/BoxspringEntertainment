@@ -1,0 +1,16 @@
+.row
+  .col-sm-6
+    %label.user-field-label Email:
+    %label.user-field-value= @user.email
+
+  .col-sm-6
+    %label.user-field-label First Name:
+    %label.user-field-value= @user.first_name
+
+  .col-sm-6
+    %label.user-field-label Last Name:
+    %label.user-field-value= @user.last_name
+
+  .col-sm-6
+    %label.user-field-label Hr Manager:
+    %label.user-field-value= @user.hr_manager.email if @user.hr_manager.present?

@@ -17,10 +17,28 @@ var createSlick  = function(){
   });
 }
 
+var createEpisodeSlick  = function(){
+  $(".episode-slick").slick({
+    dots:true,
+    infinite: true,
+    slidesToShow:4,
+    slidesToScroll: 1,
+      responsive: [{
+          breakpoint: 500,
+          settings: {
+              dots: false,
+              arrows: false,
+              infinite: false,
+              slidesToShow: 2,
+              slidesToScroll: 2
+          }
+      }]
+  });
+}
 
 $(document).ready(function(){
   createSlick();
-
+  createEpisodeSlick();
   var clickOnVideoModal = function(){
      $('body').on('click', '.episode-video-modal-link', function(){
        $('#episode_video').modal('show');
