@@ -33,7 +33,7 @@
         = image_tag "LinkedInPic.jpg", :class => 'LinkedIn'
       - elsif @category.category_id.to_i != 3
     #convo
-      - if @category.category_option(current_user).present? and @category.category_option(current_user).message_board
+      - if @category.message_board_permission current_user
         = link_to message_board_category_path(@category) do
           %h1 Join The Conversation
       - else

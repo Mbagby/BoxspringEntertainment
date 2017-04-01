@@ -27,13 +27,13 @@
   #panel3.panel.panel-default
     .panel-heading
       %h4.panel-title
-        %a.collapsed{"data-target" => "#collapseThree", "data-toggle" => "collapse", :href => "#collapseThree"}
+        %a{"data-target" => "#collapseThree", "data-toggle" => "collapse", :href => dashboard_groups_path, class: params[:action] == "groups" ? "" : "collapsed"}
           %strong GROUPS
           |
           manage
           |
           show activity
-    #collapseThree.panel-collapse.collapse
+    #collapseThree.panel-collapse.collapse{class: params[:action] == "groups" ? "in" : ""}
       .panel-body Groups
   #panel4.panel.panel-default
     .panel-heading

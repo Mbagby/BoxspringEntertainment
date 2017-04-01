@@ -14,6 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
         super do
           resource.assign_attributes(sign_up_params)
           resource.assign_attributes(card_token:params[:stripe_token], end_date: Date.today + 1.month, plan_id:plan.id, customer_id:customer.id)
+          resource.user_type = "single_user"
           resource.save
         end
       else

@@ -38,6 +38,10 @@ class DashboardController < ApplicationController
 		asset_library.destroy
 		redirect_to dashboard_asset_libraries_path
 	end
+
+	def groups
+	end
+
 	private
 	def check_user_type
 		unless current_user.user_type == "hr_manager"

@@ -45,6 +45,8 @@ Rails.application.routes.draw do
 
     get :permission
     post :update_permission
+
+    get :groups
   end
   # resources :asset_libraries, only: [:index, :create, :delete]
   #

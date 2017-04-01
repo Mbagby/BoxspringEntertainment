@@ -34,12 +34,12 @@
           #colorFix.ui.left.icon.input
             = f.password_field :password_confirmation, :placeholder=> "Confirm Password", autocomplete: "off"
             %i.lock.icon
-        .field
-          #colorFix.ui.left.input
-            = f.text_field :company_id, :placeholder=>"Company ID"
-        .field
-          #colorFix.ui.left.input
-            = f.text_field :employee_id, :placeholder=>"Employee ID"
+        -# .field
+        -#   #colorFix.ui.left.input
+        -#     = f.text_field :company_id, :placeholder=>"Company ID"
+        -# .field
+        -#   #colorFix.ui.left.input
+        -#     = f.text_field :employee_id, :placeholder=>"Employee ID"
         -# .field
         -#   #colorFix.ui.left.input
         -#     = f.select :user_type, User.user_types.keys.map { |w| [w.humanize, w] }, class:"ui fluid dropdown"

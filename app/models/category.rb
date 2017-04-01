@@ -28,12 +28,14 @@ class Category < ActiveRecord::Base
 	end
 
 	def message_board_permission user
+		return true if user.single_user?
 		user = user.hr_manager unless user.hr_manager?
 		cat_option = category_options.find_by(user_id:user.id)
 		cat_option.present? and cat_option.message_board == true
 	end
 
 	def comment_section_permission user
+		return true if user.single_user?
 		user = user.hr_manager unless user.hr_manager?
 		cat_option = category_options.find_by(user_id:user.id)
 		cat_option.present? and cat_option.comment_section == true

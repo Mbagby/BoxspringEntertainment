@@ -1,5 +1,4 @@
-- category_option = @category.category_option(current_user)
-- if category_option.present? and category_option.message_board
+- if @category.message_board_permission current_user
   .container.message-board-page
     .row
       .col-sm-12
