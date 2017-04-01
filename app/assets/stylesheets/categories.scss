@@ -1,4 +1,7 @@
 /*Categories#Index*/
+.category-index{
+	margin-top:5%;
+}
 .formatHeader{
 	font-weight: 100;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -269,6 +272,29 @@ a, a:link{
 		}
 	}
 
+}
+
+@media screen and (max-width: 768px) and (min-width: 375px) {
+	#entire{
+		.category-index{
+			margin-top:35%;
+		}
+	}
+}
+
+@media screen and (max-width: 1366px) and (min-width: 1366px) {
+	#entire{
+		.category-index{
+			margin-top:10%;
+		}
+	}
+}
+@media screen and (max-width: 1024px) and (min-width: 1024px) {
+	#entire{
+		.category-index{
+			margin-top:30%;
+		}
+	}
 }
 
 .category-show-page{
