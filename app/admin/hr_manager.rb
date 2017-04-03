@@ -1,4 +1,6 @@
-ActiveAdmin.register User, as: "Hr Manager" do
+ActiveAdmin.register User, as: "HR Managers" do
+  menu label: "HR Managers"
+
   permit_params :first_name, :last_name, :email, :password, :password_confirmation, :company_id, :avatar, :user_type
 
   controller do

@@ -23,6 +23,7 @@ class Category < ActiveRecord::Base
 	mount_uploader :snap_shot, SnapShotUploader
 	mount_uploader :banner, BannerUploader
 
+	scope :most_recent, -> (limit) { order("created_at desc").limit(limit) }
 	def category_option user
 		category_options.find_by(user_id:user.id)
 	end

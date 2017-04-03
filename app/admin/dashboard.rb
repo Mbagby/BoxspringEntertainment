@@ -5,8 +5,8 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc{ I18n.t("active_admin.dashboard") } do
     div class: "blank_slate_container", id: "dashboard_default_message" do
       span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+        span "Welcome to Boxspring Channel's Admin Section."
+        # small I18n.t("active_admin.dashboard_welcome.call_to_action")
       end
     end
 
@@ -14,20 +14,21 @@ ActiveAdmin.register_page "Dashboard" do
     #
     # columns do
     #   column do
-    #     panel "Recent Posts" do
+    #     panel "Recent Categories" do
     #       ul do
-    #         Post.recent(5).map do |post|
-    #           li link_to(post.title, admin_post_path(post))
+    #         Category.most_recent(5).map do |cat|
+    #           li link_to(cat.title, admin_categories_path(cat.id))
     #         end
     #       end
     #     end
     #   end
-
+    #
     #   column do
     #     panel "Info" do
     #       para "Welcome to ActiveAdmin."
     #     end
     #   end
-    # end
+    # end # columns
+
   end # content
 end
