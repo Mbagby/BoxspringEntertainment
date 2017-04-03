@@ -1,19 +1,6 @@
-#  id: integer,
-#  category_id: integer,
-#  topic_id: integer,
-#  season_id: integer,
-#  episode_id: integer,
-#  series_id: integer,
-#  title: string,
-#  description: text,
-#  icon: string,
-#  rating: integer,
-#  snap_shot: string,
-
-
 ActiveAdmin.register Episode do
   permit_params :category_id, :topic_id, :season_id, :episode_id, :series_id, :title, :description, :icon, :rating, :snap_shot, :video_src
-
+  menu parent: "Categories"
   index do
     selectable_column
     id_column

@@ -1,15 +1,6 @@
-# category_id 		:integer
-# topic_id				:integer
-# series_id 			:integer
-# title  					:string
-# description 		:text
-# rating 					:integer
-# icon 						:string
-# snap_shot 			:string
-
 ActiveAdmin.register Season do
   permit_params :category_id, :topic_id, :series_id, :title, :description, :rating, :icon, :snap_shot
-
+  menu parent: "Categories"
   index do
     selectable_column
     id_column

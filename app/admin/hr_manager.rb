@@ -1,7 +1,14 @@
 ActiveAdmin.register User, as: "HR Managers" do
   menu label: "HR Managers"
-
+  menu parent: "Users", label: "HR Managers"
   permit_params :first_name, :last_name, :email, :password, :password_confirmation, :company_id, :avatar, :user_type
+
+  # actions :index, :show, :new, :create, :update, :edit
+  config.clear_action_items!
+
+  action_item :only => :index do
+    link_to "New HR Manager", new_admin_hr_manager_path
+  end
 
   controller do
     def scoped_collection
@@ -9,7 +16,7 @@ ActiveAdmin.register User, as: "HR Managers" do
     end
   end
 
-  index do
+  index :title => "HR Managers"  do
     selectable_column
     id_column
     column :email
@@ -30,9 +37,8 @@ ActiveAdmin.register User, as: "HR Managers" do
   filter :first_name
   filter :last_name
   filter :email
-
-  form do |f|
-    f.inputs "Hr Manager Details" do
+  form :title => "HR Manager" do |f|
+    f.inputs "HR Manager Details" do
       f.input :email
       f.input :first_name
       f.input :last_name
@@ -45,7 +51,7 @@ ActiveAdmin.register User, as: "HR Managers" do
     f.actions
   end
 
-  show do
+  show do |hr_manager|
     attributes_table do
       row :id
       row :email

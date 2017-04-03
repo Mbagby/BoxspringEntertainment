@@ -1,6 +1,6 @@
 ActiveAdmin.register User, as: "Employer" do
   permit_params :first_name, :last_name, :email, :password, :password_confirmation, :company_id, :employee_id, :avatar, :user_type
-
+  menu parent: "Users"
   controller do
     def scoped_collection
       super.employers

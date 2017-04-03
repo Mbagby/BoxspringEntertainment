@@ -1,13 +1,6 @@
-# category_id 		:integer
-# topic_id				:integer
-# title  					:string
-# description 		:text
-# icon 						:string
-# snap_shot 			:string
-
 ActiveAdmin.register Topic do
   permit_params :category_id, :topic_id, :title, :description, :icon, :snap_shot
-
+  menu parent: "Categories"
   index do
     selectable_column
     id_column
