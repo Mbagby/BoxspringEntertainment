@@ -96,6 +96,14 @@
     font-size: 30px;
   }
 }
+@media screen and (max-width: 768px) and (min-width: 375px) {
+  .staticBackground{
+    h1.copywrite{
+      font-size: 20px;
+      bottom:22px;
+    }
+  }
+}
 .contact-page{
   // width: 50%;
   // height: 35%;
