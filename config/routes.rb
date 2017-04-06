@@ -54,6 +54,9 @@ Rails.application.routes.draw do
   #   root to: "devise/sessions#new"
   # end
 
+  resources :assignments, only: [:index] do 
+  end
+
   get "/home/contact" => "home#contact"
   get "/quizes", to: "quizes#index"
   get :select_box, to: "home#select_box"

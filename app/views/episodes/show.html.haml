@@ -8,13 +8,13 @@
   - if @category.comment_section_permission current_user
     - @episode.comments.each do |comment|
       .row.comment-list
-        .col-sm-1
+        .col-sm-1.col-xs-2
           .thumbnail
             - if current_user.avatar.present?
               = image_tag comment.user.avatar.url, class:"img-responsive user-photo"
             - else
               = image_tag "avatar.png", class:"img-responsive user-photo"
-        .col-sm-8
+        .col-sm-8.col-xs-10
           .panel.panel-default
             .panel-heading
               %strong= comment.user.name

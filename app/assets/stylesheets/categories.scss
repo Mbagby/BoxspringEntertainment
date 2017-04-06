@@ -98,12 +98,22 @@ a, a:link{
 	width:100%;
 	height: 508px;
 }
+
 .videoLarge{
 	height:740px;
 	width: 100%;
 	position: relative;
 	// margin-top: 125px;
 }
+@media screen and (max-width: 767px) and (min-width: 375px) {
+	.container{
+		.videoLarge{
+			height:340px;
+		}
+	}
+}
+
+
 
 .bannerVideo{
 	background-image: image-url("GreenSparkly.jpg");
