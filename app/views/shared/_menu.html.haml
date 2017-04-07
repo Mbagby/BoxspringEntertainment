@@ -2,7 +2,7 @@
   .full.height
     .following.bar
       .ui.large.secondary.network.menu
-        #browse.view-ui.item.fitted{style:"width:40%;"}
+        #browse.view-ui.item.fitted
           .ui.simple.dropdown.item
             %i.sidebar.icon
             Browse
@@ -16,7 +16,7 @@
               .active.ui.side
                 = link_to root_path do
                   = image_tag "BoxSpringLogo.jpg", class: "img-responsive", width:100, height:100
-        #rightMenu.right.menu{style:"width:40%;display:flex;justify-content:flex-end;"}
+        #rightMenu.right.menu
           .ui.simple.dropdown.item
             %i.user.icon
             %span{style:"margin-right:5px;"}= current_user.first_name

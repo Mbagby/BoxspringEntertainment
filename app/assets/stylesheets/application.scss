@@ -226,9 +226,101 @@ body {
 	margin-right: 15px;
 };
 
+#topMenu{
+	.menu{
+		#browse{
+			width: 40%;
+		}
+		#rightMenu{
+			width:40%;
+			display:flex;
+			justify-content:flex-end;
+		}
+	}
+}
 
 
+@media screen and (max-width: 640px) and (min-width: 360px) {
+	#topMenu{
+		.menu{
+			#browse{
+				width: 35%;
+			}
+			#logo{
+				width:15%;
+			}
+			#rightMenu{
+				width:40%;
+				display:flex;
+				justify-content:flex-end;
+			}
+		}
+	}
+}
+@media screen and (max-width: 732px) and (min-width: 412px) {
+	#topMenu{
+		.menu{
+			#browse{
+				width: 40%;
+			}
+			#logo{
+				width:15%;
+			}
+			#rightMenu{
+				width:40%;
+			}
+		}
+	}
+}
+@media screen and (max-width: 732px) and (min-width: 412px) and (orientation: landscape) {
+	#topMenu{
+		.menu{
+			#browse{
+				width: 40%;
+			}
+			#logo{
+				width: auto;
+			}
+			#rightMenu{
+				width:40%;
+			}
+		}
+	}
+}
+@media screen and (max-width: 640px) and (min-width: 360px) and (orientation: landscape) {
+	#topMenu{
+		.menu{
+			#browse{
+				width: 40%;
+			}
+			#logo{
+				width:auto;
+			}
+			#rightMenu{
+				width:40%;
+				display:flex;
+				justify-content:flex-end;
+			}
+		}
+	}
+}
 
+// iPhone 5
+// @media screen and (max-width: 568px) and (min-width: 320px) {
+// 	#topMenu{
+// 		.menu{
+// 			#browse{
+// 				width: 35%;
+// 			}
+// 			#logo{
+// 				width:15%;
+// 			}
+// 			#rightMenu{
+// 				width:40%;
+// 			}
+// 		}
+// 	}
+// }
 /*SeasonsImages*/
 
 
