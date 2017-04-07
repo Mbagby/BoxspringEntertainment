@@ -22,8 +22,10 @@ class DashboardController < ApplicationController
 	end
 
 	def asset_libraries
-		# @asset_libraries = current_user.asset_libraries.paginate(:page => params[:page], :per_page => 10)
 		@asset_libraries = current_user.asset_libraries
+		@asset_libraries = Kaminari.paginate_array(@asset_libraries).page(params[:page]).per(5)
+		# @asset_libraries = current_user.asset_libraries.paginate(:page => params[:page], :per_page => 10)
+		# @asset_libraries = current_user.asset_libraries
 	end
 
 	# POST dashboard/upload_file

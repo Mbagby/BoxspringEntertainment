@@ -69,13 +69,18 @@ gem 'stripe-rails'
 gem 'mailboxer'
 gem 'newrelic_rpm'
 gem 'remotipart'
+
+gem 'kaminari'
 # gem 'will_paginate', '~> 3.1.0'
 # gem 'will_paginate-bootstrap'
 # gem 'will_paginate', "3.0.pre2"
+
 gem 'foreman'
 gem 'sidekiq'
 gem 'redis'
 gem 'redis-namespace'
+
+gem 'google-analytics-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
