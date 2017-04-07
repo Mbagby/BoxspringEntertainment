@@ -28,19 +28,21 @@
             %tr
               %th File Name
               %th Category
-              %th Uploaded At
+              %th.hidden-xs Uploaded At
               %th Manage
           %tbody
             - @asset_libraries.each do |asset|
               %tr
                 %td= link_to File.basename(asset.file.path), asset.file.url, target: "_blank"
                 %td
-                  = link_to asset.category.title, category_path(asset.category) if asset.category.present?
-                %td= asset.created_at.strftime("%b %dth %Y")
-                %td
+                  %span.hidden-xs
+                    = link_to asset.category.title, category_path(asset.category) if asset.category.present?
+                  %span.visible-xs
+                    = link_to asset.category.id, category_path(asset.category) if asset.category.present?
+                %td.hidden-xs= asset.created_at.strftime("%b %dth %Y")
+                %td{style:"text-align:center;"}
                   = link_to dashboard_destroy_file_path(id:asset.id), method: :delete, data:{confirm: "Are you sure"} do
                     %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
-                    Delete
         = paginate @asset_libraries
         -# = will_paginate @asset_libraries, renderer: BootstrapPagination::Rails
 :javascript

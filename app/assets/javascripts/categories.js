@@ -27,7 +27,7 @@ var createEpisodeSlick  = function(){
           breakpoint: 500,
           settings: {
               dots: false,
-              arrows: false,
+              arrows: true,
               infinite: false,
               slidesToShow: 2,
               slidesToScroll: 2

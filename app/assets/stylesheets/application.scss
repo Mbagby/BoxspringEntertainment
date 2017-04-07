@@ -239,88 +239,110 @@ body {
 	}
 }
 
-
-@media screen and (max-width: 640px) and (min-width: 360px) {
-	#topMenu{
-		.menu{
-			#browse{
-				width: 35%;
-			}
-			#logo{
-				width:15%;
-			}
-			#rightMenu{
-				width:40%;
-				display:flex;
-				justify-content:flex-end;
-			}
-		}
-	}
-}
-@media screen and (max-width: 732px) and (min-width: 412px) {
+// iPhone 6 pulus
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px)
+and (orientation : portrait) {
 	#topMenu{
 		.menu{
 			#browse{
 				width: 40%;
 			}
-			#logo{
-				width:15%;
-			}
-			#rightMenu{
-				width:40%;
-			}
 		}
 	}
 }
-@media screen and (max-width: 732px) and (min-width: 412px) and (orientation: landscape) {
-	#topMenu{
-		.menu{
-			#browse{
-				width: 40%;
-			}
-			#logo{
-				width: auto;
-			}
-			#rightMenu{
-				width:40%;
-			}
-		}
-	}
-}
-@media screen and (max-width: 640px) and (min-width: 360px) and (orientation: landscape) {
-	#topMenu{
-		.menu{
-			#browse{
-				width: 40%;
-			}
-			#logo{
-				width:auto;
-			}
-			#rightMenu{
-				width:40%;
-				display:flex;
-				justify-content:flex-end;
-			}
-		}
-	}
-}
-
 // iPhone 5
-// @media screen and (max-width: 568px) and (min-width: 320px) {
-// 	#topMenu{
-// 		.menu{
-// 			#browse{
-// 				width: 35%;
-// 			}
-// 			#logo{
-// 				width:15%;
-// 			}
-// 			#rightMenu{
-// 				width:40%;
-// 			}
-// 		}
-// 	}
-// }
+/* Portrait */
+@media only screen
+ and (min-device-width: 320px)
+ and (max-device-width: 568px)
+ and (-webkit-min-device-pixel-ratio: 2)
+ and (orientation: portrait) {
+	 #topMenu{
+		 .menu{
+			 #browse{
+				 width: 37%;
+			 }
+			 #logo{
+				 width:15%;
+			 }
+			 #rightMenu{
+				 width:40%;
+			 }
+		 }
+	 }
+}
+
+// Galaxy S5
+@media only screen and (max-width : 360px) and (orientation : portrait) {
+	#topMenu{
+		.menu{
+			#browse{
+				width: 37%;
+			}
+			#logo{
+				width:15%;
+			}
+			#rightMenu{
+				width:40%;
+			}
+		}
+	}
+}
+
+// iPhone6
+@media only screen and (max-width : 375px) and (orientation : portrait) {
+	#topMenu{
+		.menu{
+			#browse{
+				width: 37%;
+			}
+			#logo{
+				width:15%;
+			}
+			#rightMenu{
+				width:40%;
+			}
+		}
+	}
+}
+
+// iPhone6
+@media only screen and (max-width : 414px) and (orientation : portrait) {
+	#topMenu{
+		.menu{
+			#browse{
+				width: 37%;
+			}
+			#logo{
+				width:15%;
+			}
+			#rightMenu{
+				width:40%;
+			}
+		}
+	}
+	.category-show-page{
+		#tools{
+			h1{
+				font-size: 20px;
+			}
+			p{
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+		#convo{
+			margin-left: 5px;
+			margin-right: 5px;
+			h1{
+				font-size:20px;
+			}
+		}
+	}
+
+}
 /*SeasonsImages*/
 
 
