@@ -54,4 +54,6 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # config.stripe.publishable_key = Rails.application.secrets.stripe_publishable_key
+  # GA.tracker = "UA-97008718-1"
+  GA.tracker = "UA-97039726-1"
 end

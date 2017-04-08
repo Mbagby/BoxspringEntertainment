@@ -8,6 +8,7 @@
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
   %body
+    = analytics_init if GoogleAnalytics.valid_tracker?
     .pictureBackground
       .container
         = flash_messages

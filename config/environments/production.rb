@@ -84,4 +84,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   # config.stripe.publishable_key = Rails.application.secrets.stripe_publishable_key
+  # GA.tracker = "UA-97008718-1"
+  GA.tracker = "UA-97039726-1"
+
 end

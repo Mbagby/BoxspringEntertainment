@@ -9,6 +9,7 @@
     %link{:href => "//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   %body
+    = analytics_init if GoogleAnalytics.valid_tracker?
     #entire
       = flash_messages
       = render "shared/menu"
