@@ -1,10 +1,10 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register Category, as: "Channel" do
   permit_params :category_id, :title, :description, :banner, :snap_shot
 
   index do
     selectable_column
     id_column
-    column :category_id
+    column "Channel ID", :category_id
     column :title
     column :description
     column 'Banner' do |category|
@@ -21,7 +21,7 @@ ActiveAdmin.register Category do
 
   form do |f|
     f.inputs "Admin Details" do
-      f.input :category_id
+      f.input :category_id, label: "Channel ID"
       f.input :title
       f.input :description
       f.input :banner

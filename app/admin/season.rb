@@ -1,10 +1,10 @@
 ActiveAdmin.register Season do
   permit_params :category_id, :topic_id, :series_id, :title, :description, :rating, :icon, :snap_shot
-  menu parent: "Categories"
+  menu parent: "Channels"
   index do
     selectable_column
     id_column
-    column :category_id
+    column "Channel", :category_id
     column :topic_id
     column :series_id
     column :title
@@ -20,7 +20,7 @@ ActiveAdmin.register Season do
   filter :title
   form do |f|
     f.inputs "Admin Details" do
-      f.input :category_id, :label => 'Category', as: :select, :collection => Category.all.map{|c| [c.title, c.id]}
+      f.input :category_id, :label => 'Channel', as: :select, :collection => Category.all.map{|c| [c.title, c.id]}
       f.input :topic_id, :label => 'Topic', as: :select, :collection => Topic.all.map{|t| [t.title, t.id]}
       f.input :series_id
       f.input :title
