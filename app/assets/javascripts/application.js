@@ -17,6 +17,7 @@
 //= require jquery.slick
 //= require summernote
 //= require jquery.remotipart
+//= require select2.full
 //= require_tree .
 // Loads all Semantic javascripts
 

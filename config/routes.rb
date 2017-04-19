@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   resources :assignments, only: [:index] do 
   end
 
+  resources :groups, only: [:new, :create]
+
   get "/home/contact" => "home#contact"
   get "/quizes", to: "quizes#index"
   get :select_box, to: "home#select_box"

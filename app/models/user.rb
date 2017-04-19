@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :employers, -> { where(user_type: "employer") }, class_name: "User", foreign_key: "employee_id"
   has_many :employees, -> { where(user_type: "employee") }, class_name: "User", foreign_key: "employee_id"
   has_many :tech_developers, -> { where(user_type: "employee") }, class_name: "User", foreign_key: "tech_developer"
+  has_many :groups, foreign_key: "hr_manager_id"
 
   belongs_to :company
   # validates :employee_id, presence: true, :unless => :user_type == 'hr_manager'
