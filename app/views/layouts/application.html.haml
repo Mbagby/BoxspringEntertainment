@@ -11,7 +11,7 @@
   %body
     = analytics_init if GoogleAnalytics.valid_tracker?
     #entire
-      = flash_messages
       = render "shared/menu"
+      = flash_messages
       = yield
     = render "shared/footer"
