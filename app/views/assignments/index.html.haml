@@ -17,24 +17,17 @@
           - @group_assignments.each do |group_assignment|
             %tbody
               %tr 
-                %td
-                  = group_assignment.assignee.name
-                %td
-                  = group_assignment.content.title
-                  = "("+group_assignment.content_type+")"
+                %td= group_assignment.assignee.name
+                %td #{group_assignment.content.title} (#{group_assignment.content_type})
       .col-md-6.mar-top-20
         %h3 Assigned to employees
         %table.table
           %head
             %tr
               %th Group name
-
               %th Assignee
           - @employee_assignments.each do |employee_assignment|
             %tbody
               %tr 
-                %td
-                  = group_assignment.assignee.first_name
-                %td
-                  = employee_assignment.content.title
-                  = "("+employee_assignment.content_type+")"
+                %td= group_assignment.assignee.first_name
+                %td #{employee_assignment.content.title} (#{employee_assignment.content_type})

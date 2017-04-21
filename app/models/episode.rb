@@ -24,7 +24,6 @@ class Episode < ActiveRecord::Base
   belongs_to :topic
   belongs_to :season
   has_many :comments, as: :commentable
-
   has_many :assignments, as: :content, dependent: :destroy
 
   default_scope { order(episode_id: :asc) }

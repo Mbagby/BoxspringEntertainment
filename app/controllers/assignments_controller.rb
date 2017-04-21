@@ -20,13 +20,13 @@ class AssignmentsController < ApplicationController
 
   def select_content
     if params[:content_name] == "Category"
-      @categories = Category.all
+      @content = Category.all
     elsif params[:content_name] == "Topic"
-      @topics = Topic.all
+      @content = Topic.all
     elsif params[:content_name] == "Season"
-      @seasons = Season.all
+      @content = Season.all
     elsif params[:content_name] == "Episode"
-      @episodes = Episode.all
+      @content = Episode.all
     end
     respond_to do  |formate|
       formate.js

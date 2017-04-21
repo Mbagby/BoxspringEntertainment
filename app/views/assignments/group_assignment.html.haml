@@ -26,16 +26,3 @@
               .col-md-6
                 = f.select :content_id, [], {}, {class: " form-control input-md", id: "select_cantents_value"}
             = f.submit "Create", class: "btn btn-default"
-
-
-:javascript
-  $(document).on("change", "#select_content_name", function(){
-    var content_name = $("#select_content_name").val();
-    $.ajax({
-      type: "GET",
-      url: "/assignments/select_content",
-      data: {content_name: content_name},    
-      success: function (data) {
-      }
-    });
-  });

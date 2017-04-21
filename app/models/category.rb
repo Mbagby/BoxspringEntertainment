@@ -19,7 +19,6 @@ class Category < ActiveRecord::Base
   has_many :messages, as: :messageable
   has_many :asset_libraries
   has_many :category_options
-
   has_many :assignments, as: :content, dependent: :destroy
 
   mount_uploader :snap_shot, SnapShotUploader
