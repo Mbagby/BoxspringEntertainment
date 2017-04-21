@@ -57,7 +57,11 @@ Rails.application.routes.draw do
   resources :assignments, only: [:index] do 
   end
 
-  resources :groups, only: [:new, :create]
+  namespace :hr_manager, path: '' do
+    resources :groups, only: [:new, :create, :show, :destroy] do
+      resources :group_employees, only: [:create, :destroy]
+    end
+  end
 
   get "/home/contact" => "home#contact"
   get "/quizes", to: "quizes#index"

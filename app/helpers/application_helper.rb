@@ -12,4 +12,18 @@ module ApplicationHelper
     end
     nil
   end
+
+  def get_employees_to_select_for(user, group)
+    preselected_employee_ids = if group.persisted?
+                                 user.group_employees.pluck(:employee_id)
+                               else
+                                 group.group_employees.pluck(:employee_id)
+                               end
+    data = if preselected_employee_ids.present?
+             user.employees.where('id NOT IN (?)', preselected_employee_ids).map{|e| [e.full_name, e.id]}
+           else
+             user.employees.map{|e| [e.full_name, e.id]}
+           end
+    data
+  end
 end

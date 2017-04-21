@@ -1,0 +1,29 @@
+.dashboard-page
+  .col-sm-3.side_nav
+    = render "dashboard/left_side_dashboard"
+  .col-sm-9.groups-page
+    .row
+      .col-sm-12.content-header
+        %label alerts - messages - ad space
+    .row.page-content
+      .col-sm-12.mar-top-20
+        %h1.page-title Create Group
+    .container.mar-top-50
+      = form_for @group, url: hr_manager_groups_path do |f|
+        .row
+          .col-md-12
+            .form-group
+              .col-md-2
+                %label Group Name *
+              .col-md-4
+                = f.text_field :name, :placeholder => "Name", class: "form-control"
+            .clearfix
+            .form-group.mar-top-20
+              .col-md-2
+                %label Employees Name *
+              .col-md-6
+                = select_tag :employee_ids, options_for_select(get_employees_to_select_for(current_user, @group)), class: "select2_search col-md-8", multiple: true
+              .clearfix
+            .form-group
+              .col-lg-offset-2.col-lg-10
+                = f.submit "Save", class: "btn btn-success"

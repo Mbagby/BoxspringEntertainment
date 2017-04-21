@@ -1,0 +1,41 @@
+.dashboard-page
+  .col-md-3.side_nav
+    = render "dashboard/left_side_dashboard"
+  .col-md-9.groups-page
+    .row
+      .col-md-12.content-header
+        %label alerts - messages - ad space
+    .row.page-content
+      .col-sm-12.mar-top-20
+        %h1.page-title Group - #{@group.name}
+    .col-md-12.mar-top-50
+      = form_for(:group_employee, url: hr_manager_group_group_employees_path(@group), html: { class: "form-horizontal", id: 'group_employee_form', name: 'group_employee_form' }) do |f|
+        .row
+          .col-md-12
+            .form-group
+              .col-md-2
+                %label Add Employees
+              .col-md-8
+                .col-md-9
+                  = f.select :employee_ids, get_employees_to_select_for(current_user, @group), {}, {multiple: true, class: " form-control input-md select2_search"}
+                .col-md-3
+                  = f.submit "Add", class: "btn btn-success"
+      .clearfix
+      .mar-top-20
+        %table.table.table-bordered.table-striped
+          %thead
+            %tr
+              %th Employee Name
+              %th email
+              %th Added at
+              %th Remove from group
+          %tbody
+            - @group_employees.each do |group_employee|
+              %tr
+                %td= group_employee.employee_full_name
+                %td= group_employee.employee_email
+                %td= group_employee.created_at
+                %td
+                  = link_to hr_manager_group_group_employee_path(@group, group_employee), method: :delete, class: "btn btn-danger btn-sm employee_groups_remove_link", data: { confirm: "Are you sure you want to delete it?" } do
+                    %span.glyphicon.glyphicon-trash
+        = paginate @group_employees

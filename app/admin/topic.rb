@@ -1,10 +1,10 @@
 ActiveAdmin.register Topic do
   permit_params :category_id, :topic_id, :title, :description, :icon, :snap_shot
-  menu parent: "Channels"
+  menu parent: "Categories"
   index do
     selectable_column
     id_column
-    column "Channel", :category_id
+    column "Category", :category_id
     column :topic_id
     column :title
     column :description
@@ -19,7 +19,7 @@ ActiveAdmin.register Topic do
 
   form do |f|
     f.inputs "Admin Details" do
-      f.input :category_id, :label => 'Channel', as: :select, :collection => Category.all.map{|c| [c.title, c.id]}
+      f.input :category_id, :label => 'Category', as: :select, :collection => Category.all.map{|c| [c.title, c.id]}
       f.input :topic_id
       f.input :title
       f.input :description

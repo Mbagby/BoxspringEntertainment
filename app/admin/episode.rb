@@ -1,10 +1,10 @@
 ActiveAdmin.register Episode do
   permit_params :category_id, :topic_id, :season_id, :episode_id, :series_id, :title, :description, :icon, :rating, :snap_shot, :video_src
-  menu parent: "Channels"
+  menu parent: "Categories"
   index do
     selectable_column
     id_column
-    column "Channel", :category_id
+    column "Category", :category_id
     column :topic_id
     column :season_id
     column :episode_id
@@ -26,7 +26,7 @@ ActiveAdmin.register Episode do
 
   form do |f|
     f.inputs "Admin Details" do
-      f.input :category_id, :label => 'Channel', as: :select, :collection => Category.all.map{|c| [c.title, c.id]}
+      f.input :category_id, :label => 'Category', as: :select, :collection => Category.all.map{|c| [c.title, c.id]}
       f.input :topic_id, :label => 'Topic', as: :select, :collection => Topic.all.map{|t| [t.title, t.id]}
       f.input :season_id, :label => 'Season', as: :select, :collection => Season.all.map{|s| [s.title, s.id]}
       f.input :episode_id

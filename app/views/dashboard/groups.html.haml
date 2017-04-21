@@ -8,20 +8,24 @@
     .row.page-content
       .col-sm-12
         %h1.page-title Groups
-        = link_to 'Create Group', new_group_path, class: 'btn btn-default pull-right'
-    %div.clearfix
-    %div.row.groups
+        = link_to 'Create Group', new_hr_manager_group_path, class: 'btn btn-info pull-right'
+    .clearfix
+    .row.groups
       .col-sm-12{style:"margin-top:25px;"}
         %table.table.table-responsive.table-striped.table-bordered
           %thead
             %tr
-              %th HR Manager
               %th Name
+              %th HR Manager
+              %th Employees Count
+              %th Actions
           %tbody
             - @groups.each do |group|
               %tr
+                %td.employee_groups{"data-link" => "#{hr_manager_group_path(group)}"}= group.name
+                %td.employee_groups{"data-link" => "#{hr_manager_group_path(group)}"}= group.hr_manager.email
+                %td.employee_groups{"data-link" => "#{hr_manager_group_path(group)}"}= group.group_employees.count
                 %td
-                  = group.hr_manager.email if group.persisted?
-                %td
-                  = group.name if group.persisted?
+                  = link_to hr_manager_group_path(group), method: :delete, class: "btn btn-danger btn-sm employee_groups_remove_link", data: { confirm: "Are you sure you want to delete it?" } do
+                    %span.glyphicon.glyphicon-trash
         = paginate @groups

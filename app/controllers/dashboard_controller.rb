@@ -42,9 +42,8 @@ class DashboardController < ApplicationController
   end
 
   def groups
-    @group = current_user.groups.new
-    @groups = current_user.groups
-    @groups = Kaminari.paginate_array(@groups).page(params[:page]).per(5)
+    groups = current_user.groups
+    @groups = Kaminari.paginate_array(groups).page(params[:page]).per(5)
   end
 
   private
