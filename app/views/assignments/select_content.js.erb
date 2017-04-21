@@ -1,0 +1,9 @@
+<% if params[:content_name] == "Category" %>
+	$("#select_cantents_value").replaceWith("<%= escape_javascript(render :partial => 'content_values', locals: { :content_values =>  @categories.map{|a| [a.title, a.id]} }) %>");
+<% elsif params[:content_name] == "Topic" %>
+	$("#select_cantents_value").replaceWith("<%= escape_javascript(render :partial => 'content_values', locals: { :content_values =>  @topics.map{|a| [a.title, a.id]} }) %>");
+<% elsif params[:content_name] == "Season" %>
+	$("#select_cantents_value").replaceWith("<%= escape_javascript(render :partial => 'content_values', locals: { :content_values =>  @seasons.map{|a| [a.title, a.id]} }) %>");
+<% elsif params[:content_name] == "Episode" %>
+	$("#select_cantents_value").replaceWith("<%= escape_javascript(render :partial => 'content_values', locals: { :content_values =>  @episodes.map{|a| [a.title, a.id]} }) %>");
+<% end %>

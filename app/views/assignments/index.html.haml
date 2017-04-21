@@ -1,5 +1,40 @@
-.container.assignments-page
-  .row
-    .col-md-6
-      %h1 Employees list
-    .col-md-6
+.dashboard-page
+  .col-md-3.side_nav
+    = render "dashboard/left_side_dashboard"
+  .col-md-9.groups-page
+    .row
+      .col-md-12.content-header
+        %label alerts - messages - ad space
+    .row.mar-top-20
+      %h1 Assignments
+      .col-md-6.mar-top-20
+        %h3 Assigned to groups
+        %table.table
+          %head
+            %tr
+              %th Group name
+              %th Assignee
+          - @group_assignments.each do |group_assignment|
+            %tbody
+              %tr 
+                %td
+                  = group_assignment.assignee.name
+                %td
+                  = group_assignment.content.title
+                  = "("+group_assignment.content_type+")"
+      .col-md-6.mar-top-20
+        %h3 Assigned to employees
+        %table.table
+          %head
+            %tr
+              %th Group name
+
+              %th Assignee
+          - @employee_assignments.each do |employee_assignment|
+            %tbody
+              %tr 
+                %td
+                  = group_assignment.assignee.first_name
+                %td
+                  = employee_assignment.content.title
+                  = "("+employee_assignment.content_type+")"
