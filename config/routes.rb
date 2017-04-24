@@ -54,9 +54,8 @@ Rails.application.routes.draw do
   #   root to: "devise/sessions#new"
   # end
 
-  resources :assignments, only: [:index] do
+  resources :assignments, only: [:index, :new, :create] do
     collection do
-      get :group_assignment
       post :create_group_assignment
       get :select_content
     end 

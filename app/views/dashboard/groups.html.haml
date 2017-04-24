@@ -8,6 +8,7 @@
     .row.page-content
       .col-sm-12
         %h1.page-title Groups
+        = link_to 'Add Assignment', new_assignment_path, class: "pull-right btn btn-info"
         = link_to 'Create Group', new_hr_manager_group_path, class: 'btn btn-info pull-right'
     .clearfix
     .row.groups

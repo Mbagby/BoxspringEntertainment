@@ -1,1 +1,1 @@
-$("#select_cantents_value").replaceWith("<%= escape_javascript(render :partial => 'content_values', locals: { :content_values =>  @content.map{|a| [a.title, a.id]} }) %>");
+$("#select_contents_value").replaceWith("<%= escape_javascript(render :partial => 'content_values', locals: { :content_values =>  @content.map{|a| [a.title, a.id]} }) %>");

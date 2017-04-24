@@ -1,0 +1,35 @@
+.dashboard-page
+  .col-md-3.side_nav
+    = render "dashboard/left_side_dashboard"
+  .col-md-9.groups-page
+    .row
+      .col-md-12.content-header
+        %label alerts - messages - ad space
+    .row.page-content
+      .col-sm-12.mar-top-20
+        %h1.page-title Create Assignment
+    .col-md-12.mar-top-50
+      = form_for(:assignment, url: assignments_path, html: { class: "form-horizontal"}) do |f|
+        .row
+          .col-md-12
+            .form-group
+              .col-md-2
+                %label Select One
+              .col-md-6
+                = select_tag "assignment[content_type]", options_for_select([["Category", "Category"], ["Topic", "Topic"], ["Season", "Season"], ["Episode", "Episode"]]), include_blank: 'Select One', class: " form-control input-md", id: "select_content_name"
+            .form-group
+              .col-md-2
+                %label Select One
+              .col-md-6
+                = f.select :content_id, [], {}, {class: " form-control input-md", id: "select_contents_value"}
+            .form-group
+              .col-md-2
+                %label Select Groups
+              .col-md-6
+                = f.select :groups_ids, options_for_select(@groups.map{ |g| [g.name, g.id]}), {include_blank: 'Select One'}, {class: " form-control input-md select2_groups", :multiple => true, id: ""}
+            .form-group
+              .col-md-2
+                %label Select Employees
+              .col-md-6
+                = f.select :employees_ids, options_for_select(@employees.map{ |e| [e.full_name, e.id]}), {include_blank: 'Select One'}, {class: " form-control input-md select2_employees", :multiple => true, id: ""}
+            = f.submit "Create", class: "btn btn-default"

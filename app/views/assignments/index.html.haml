@@ -24,10 +24,10 @@
         %table.table
           %head
             %tr
-              %th Group name
+              %th Employee name
               %th Assignee
           - @employee_assignments.each do |employee_assignment|
             %tbody
               %tr 
-                %td= group_assignment.assignee.first_name
+                %td= employee_assignment.assignee.full_name
                 %td #{employee_assignment.content.title} (#{employee_assignment.content_type})

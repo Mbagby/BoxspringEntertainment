@@ -3,19 +3,40 @@ class AssignmentsController < ApplicationController
 	before_action :check_user_type
 
   def index
-    @group_assignments = Assignment.where(assignee_type: "Group")
-    @employee_assignments = Assignment.where(assignee_type: "Employee")
+    @group_assignments = Assignment.group_assignments
+    @employee_assignments = Assignment.employee_assignments
   end
 
-  def group_assignment
-    @group = Group.find(params[:group_id]) if params[:group_id]
+  def new
+    @groups = current_user.groups
+    @employees = current_user.employees
+  end
+
+  def create
+    params[:assignment][:groups_ids].delete("")
+    params[:assignment][:employees_ids].delete("")
+    create_group_assignment
+    create_employee_assignment
+    flash[:notice] = "Assignment created sucessfully."
+    redirect_to dashboard_groups_path
   end
 
   def create_group_assignment
-    assignment = Assignment.new params_assignment
-    assignment.save
-    flash[:notice] = "Assignment created sucessfully."
-    redirect_to :back
+    params[:assignment][:groups_ids].each do |group_id|
+      params[:assignment][:assignee_id] = group_id
+      params[:assignment][:assignee_type] = "Group"
+      group_assignment = Assignment.new params_assignment
+      group_assignment.save
+    end
+  end
+
+  def create_employee_assignment
+    params[:assignment][:employees_ids].each do |employee_id|
+      params[:assignment][:assignee_id] = employee_id
+      params[:assignment][:assignee_type] = "User"
+      employee_assignment = Assignment.new params_assignment
+      employee_assignment.save
+    end
   end
 
   def select_content
