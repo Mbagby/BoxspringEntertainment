@@ -20,7 +20,6 @@
                   = f.select :employee_ids, get_employees_to_select_for(current_user, @group), {}, {multiple: true, class: " form-control input-md select2_search"}
                 .col-md-3
                   = f.submit "Add", class: "btn btn-success"
-      = link_to "Add Assignee", group_assignment_assignments_path(group_id: @group.id), class: "pull-right btn btn-info"
       .clearfix
       .mar-top-20
         %table.table.table-bordered.table-striped
