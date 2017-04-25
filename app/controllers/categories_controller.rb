@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   def index
+    @employee_assignments = Assignment.employee_assignments
     @categories = Category.order('category_id').all
     @user = User.find_by_id(session[:user_id])
   end

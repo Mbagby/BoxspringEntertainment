@@ -1,3 +1,4 @@
+
 #content.uui.category-index
   .grid.rows
     .category-slick
@@ -8,3 +9,30 @@
           = link_to category_path(category) do
             .banner
               = image_tag category.banner.url if category.banner.present?
+
+.col-md-6.mar-top-20
+  %h3 Assigned to employees
+  %table.table
+    %head
+      %tr
+        %th Employee name
+        %th Assignee
+    - @employee_assignments.each do |employee_assignment|
+      %tbody
+        -if current_user.user_type == "employee" && employee_assignment.assignee == current_user
+          %tr 
+            %td= employee_assignment.assignee.full_name
+            -if employee_assignment.content_type == "Category"
+              %td 
+                =link_to "#{employee_assignment.content.title} ( #{employee_assignment.content_type})",  category_path(employee_assignment.content)
+            -elsif employee_assignment.content_type == "Topic"
+              %td 
+                =link_to "#{employee_assignment.content.title} ( #{employee_assignment.content_type})",  topic_path(employee_assignment.content)
+            -elsif employee_assignment.content_type == "Season"
+              %td 
+                =link_to "#{employee_assignment.content.title} ( #{employee_assignment.content_type})",  season_path(employee_assignment.content)
+            -elsif employee_assignment.content_type == "Episode"
+              %td 
+                =link_to "#{employee_assignment.content.title} ( #{employee_assignment.content_type})",  episode_path(employee_assignment.content)
+
+        
