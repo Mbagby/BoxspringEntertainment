@@ -25,8 +25,10 @@ class AssignmentsController < ApplicationController
     params[:assignment][:groups_ids].each do |group_id|
       params[:assignment][:assignee_id] = group_id
       params[:assignment][:assignee_type] = "Group"
-      group_assignment = Assignment.new params_assignment
-      group_assignment.save
+      if !Assignment.group_assignments.map(&:assignee).uniq.pluck(:id).include?(group_id.to_i)
+        group_assignment = Assignment.new params_assignment
+        group_assignment.save
+      end
     end
   end
 
