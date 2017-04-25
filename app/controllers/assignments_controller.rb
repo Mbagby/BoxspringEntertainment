@@ -34,8 +34,10 @@ class AssignmentsController < ApplicationController
     params[:assignment][:employees_ids].each do |employee_id|
       params[:assignment][:assignee_id] = employee_id
       params[:assignment][:assignee_type] = "User"
-      employee_assignment = Assignment.new params_assignment
-      employee_assignment.save
+      if !Assignment.group_assignments.map(&:assignee).map(&:group_employees).flatten.map(&:employee).pluck(:id).uniq.include?(employee_id.to_i)
+        employee_assignment = Assignment.new params_assignment
+        employee_assignment.save
+      end
     end
   end
 
