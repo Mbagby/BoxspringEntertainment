@@ -1,0 +1,43 @@
+.dashboard-page
+  .col-sm-3.side_nav
+    = render "dashboard/left_side_dashboard"
+  .col-sm-9.groups-page
+    .row
+      .col-sm-12.content-header
+        %label alerts - messages - ad space
+    .row.page-content
+      .col-sm-12.mar-top-20
+        %h1.page-title Create Question
+      .container.mar-top-50
+        = nested_form_for @question, url:hr_manager_questions_path do |f|
+          .row
+            .col-md-12
+              .form-group.mar-top-20
+                .col-md-2
+                  %label Category Name *
+                .col-md-4
+                  = f.select :category_id, options_for_select(@categories.map{ |c| [c.title, c.id]}), {include_blank: 'Select One'}, {class: " form-control input-md"}
+                  = f.hidden_field :hr_manager_id , value: current_user.id
+                .clearfix
+              .form-group.mar-top-20
+                .col-md-2
+                  %label Question Text *
+                .col-md-4
+                  = f.text_field :question_text, :placeholder => "Question text", class: "form-control"
+                .clearfix
+              = f.fields_for :question_options do |ff|
+                .form-group.mar-top-20
+                  .col-md-2
+                    = ff.radio_button :is_answer, true 
+                    = label :is_answer, 'is_answer' 
+                  .col-md-3
+                    = ff.text_field  :option_name, :placeholder => "Option name", class: "form-control"
+                  .col-md-3
+                    = ff.text_field :value, :placeholder => "Option value", class: "form-control"
+                .clearfix
+              = f.link_to_add "Add more question options", :question_options
+              .clearfix
+              .form-group
+                .col-lg-offset-2.col-lg-10
+                  = f.submit "Save", class: "btn btn-success"
+

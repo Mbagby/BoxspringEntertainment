@@ -1,0 +1,25 @@
+#quiz_questions.mar-top-20
+  .col-md-12
+    %h1 #{ @quiz.name } Questions
+    %table.table
+      %thead
+        %tr
+          %th Question
+          %th Options
+      %tbody
+        - @quiz_questions.each do |question|
+          %tr
+            %td 
+              = question.question_text
+            %td
+              %table.table
+                %thead
+                  %tr
+                    %th Option Name
+                    %th value
+                    %th is Answer
+                - question.question_options.each do |q_o|
+                  %tr
+                    %td= q_o.option_name
+                    %td= q_o.value
+                    %td=q_o.is_answer

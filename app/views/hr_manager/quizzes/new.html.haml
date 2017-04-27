@@ -1,0 +1,31 @@
+.dashboard-page
+  .col-sm-3.side_nav
+    = render "dashboard/left_side_dashboard"
+  .col-sm-9.groups-page
+    .row
+      .col-sm-12.content-header
+        %label alerts - messages - ad space
+    .row.page-content
+      .col-sm-12.mar-top-20
+        %h1.page-title Create Quiz
+      .container.mar-top-50
+        = form_for @quiz, url:hr_manager_quizzes_path do |f|
+          .row
+            .col-md-12
+              .form-group.mar-top-20
+                .col-md-2
+                  %label Category Name *
+                .col-md-4
+                  = f.select :content_id, options_for_select(@categories.map{ |c| [c.title, c.id]}), {include_blank: 'Select One'}, {class: " form-control input-md"}
+                  = f.hidden_field :hr_manager_id , value: current_user.id
+                .clearfix
+              .form-group
+                .col-md-2
+                  %label Quiz Name *
+                .col-md-4
+                  = f.text_field :name, :placeholder => "Name", class: "form-control"
+              .clearfix
+              .form-group
+                .col-lg-offset-2.col-lg-10
+                  = f.submit "Save", class: "btn btn-success"
+

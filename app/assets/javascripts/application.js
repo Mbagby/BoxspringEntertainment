@@ -18,6 +18,7 @@
 //= require summernote
 //= require jquery.remotipart
 //= require select2.full
+//= require jquery_nested_form
 //= require_tree .
 // Loads all Semantic javascripts
 

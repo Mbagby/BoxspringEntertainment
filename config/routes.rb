@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
     resources :messages, shallow:true, only: [:index, :show, :new, :create, :destroy] do
     end
+
+    collection do
+      post :quiz_questions
+    end
   end
 
   resources :users, only: [:update] do
@@ -47,6 +51,8 @@ Rails.application.routes.draw do
     post :update_permission
 
     get :groups
+    get :quizzes
+    get :questions
   end
   # resources :asset_libraries, only: [:index, :create, :delete]
   #
@@ -65,7 +71,16 @@ Rails.application.routes.draw do
     resources :groups, only: [:new, :create, :show, :destroy] do
       resources :group_employees, only: [:create, :destroy]
     end
+    resources :quizzes, only: [:new , :create, :show, :destroy] do
+      collection do
+        get :assign_questions
+      end
+    end
+    resources :questions, only: [:new , :create, :destroy]
   end
+
+  
+
 
   get "/home/contact" => "home#contact"
   get "/quizes", to: "quizes#index"

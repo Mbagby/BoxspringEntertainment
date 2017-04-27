@@ -1,0 +1,29 @@
+.dashboard-page
+  .col-sm-3.side_nav
+    = render "left_side_dashboard"
+  .col-sm-9.groups-page
+    .row
+      .col-sm-12.content-header
+        %label alerts - messages - ad space
+    .row.page-content
+      .col-sm-12.mar-top-20
+        %h1.page-title Quizzes
+        = link_to 'Add Quiz', new_hr_manager_quiz_path, class: "pull-right btn btn-info"
+    .clearfix
+    .row.groups
+      .col-sm-12{style:"margin-top:25px;"}
+        %table.table.table-responsive.table-striped.table-bordered
+          %thead
+            %tr
+              %th Name
+              %th Actions
+          %tbody
+            - @quizzes.each do |quiz|
+              %tr
+                %td
+                  = link_to quiz.name , hr_manager_quiz_path(quiz)
+                %td
+                  = link_to hr_manager_quiz_path(quiz), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure you want to delete it?" } do
+                    %span.glyphicon.glyphicon-trash
+               
+          

@@ -20,6 +20,8 @@ class Category < ActiveRecord::Base
   has_many :asset_libraries
   has_many :category_options
   has_many :assignments, as: :content, dependent: :destroy
+  has_many :quizzes, as: :content, dependent: :destroy
+  has_many :questions, dependent: :destroy
 
   mount_uploader :snap_shot, SnapShotUploader
   mount_uploader :banner, BannerUploader

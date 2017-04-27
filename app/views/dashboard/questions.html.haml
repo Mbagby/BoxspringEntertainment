@@ -1,0 +1,47 @@
+.dashboard-page
+  .col-sm-3.side_nav
+    = render "left_side_dashboard"
+  .col-sm-9.groups-page
+    .row
+      .col-sm-12.content-header
+        %label alerts - messages - ad space
+    .row.page-content
+      .col-sm-12.mar-top-20
+        %h1.page-title Question
+        = link_to 'Add Question', new_hr_manager_question_path, class: "pull-right btn btn-info"
+    .clearfix
+    .row.groups
+      .col-sm-12{style:"margin-top:25px;"}
+        %table.table.table-responsive.table-striped.table-bordered
+          %thead
+            %tr
+              %th No.
+              %th Question
+              %th Actions
+          %tbody
+            - @questions.each_with_index do |question, i|
+              %tr
+                %td
+                  = (i+1)
+                %td
+                  = question.question_text
+                  .cealerfix
+                  %table.table
+                    %thead
+                      %tr
+                        %th Option Name
+                        %th value
+                        %th is Answer
+                    - question.question_options.each do |q_o|
+                      %tr
+                        %td
+                          = q_o.option_name
+                        %td
+                          = q_o.value
+                        %td
+                          =q_o.is_answer
+                %td
+                  = link_to hr_manager_question_path(question), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure you want to delete it?" } do
+                    %span.glyphicon.glyphicon-trash
+               
+          

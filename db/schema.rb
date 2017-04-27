@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421061904) do
+ActiveRecord::Schema.define(version: 20170427061109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -211,37 +211,37 @@ ActiveRecord::Schema.define(version: 20170421061904) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "questions", force: :cascade do |t|
+  create_table "question_options", force: :cascade do |t|
     t.integer  "question_id"
-    t.integer  "quiz_id"
-    t.integer  "episode_id"
-    t.integer  "series_id"
-    t.integer  "topic_id"
+    t.string   "option_name"
+    t.string   "value"
+    t.boolean  "is_answer",   default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "hr_manager_id"
+    t.text     "question_text"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "category_id"
-    t.string   "title"
-    t.text     "question"
-    t.string   "icon"
-    t.integer  "value"
-    t.string   "snap_shot"
+  end
+
+  create_table "quiz_questions", force: :cascade do |t|
+    t.integer  "quiz_id"
+    t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "quizzes", force: :cascade do |t|
-    t.integer  "quiz_id"
-    t.integer  "episode_id"
-    t.integer  "series_id"
-    t.integer  "topic_id"
-    t.integer  "category_id"
-    t.string   "title"
-    t.text     "description"
-    t.string   "icon"
-    t.integer  "score"
-    t.string   "snap_shot"
-    t.string   "answer"
-    t.integer  "correctness"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.integer  "hr_manager_id"
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "ratings", force: :cascade do |t|

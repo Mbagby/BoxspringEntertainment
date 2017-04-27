@@ -17,4 +17,18 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @messages = @category.messages
   end
+
+  def quiz_questions
+    @quiz = Quiz.find(params[:quiz_questoins][:quiz_id]) rescue nil
+    @quiz_questions = current_user.questions - @quiz.quiz_questions.map(&:question)
+
+    question_ids = params[:quiz_questoins][:question_id].map(&:last)
+    question_ids.delete("0")
+    question_ids.each do |question_id|
+      quiz_question = @quiz.quiz_questions.new(question_id: question_id) 
+      quiz_question.save
+    end
+    flash[:notice] = "Question assigned sucesfully."
+    redirect_to :back
+  end
 end

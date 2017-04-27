@@ -44,3 +44,18 @@
           %strong ASSETS LIBRARIES
     #collapseSix.panel-collapse.collapse{class: params[:action]=="asset_libraries" ? "in" : ""}
       .panel-body Assets Libraries
+  #panel7.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-target" => "#collapseSeven", "data-toggle" => "collapse", :href => dashboard_quizzes_path, class: params[:action]=="quizzes" ? "" : "collapsed"}
+          %strong QUIZZES
+    #collapseSeven.panel-collapse.collapse{class: params[:action]=="quizzes" ? "in" : ""}
+      .panel-body Quizzes
+  #panel8.panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-target" => "#collapseEight", "data-toggle" => "collapse", :href => dashboard_questions_path, class: params[:action]=="quizzes" ? "" : "collapsed"}
+          %strong QUESTIONS
+    #collapseEight.panel-collapse.collapse{class: params[:action]=="quizzes" ? "in" : ""}
+      .panel-body Questions
+

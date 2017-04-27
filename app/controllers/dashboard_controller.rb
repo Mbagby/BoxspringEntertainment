@@ -46,6 +46,14 @@ class DashboardController < ApplicationController
     @groups = Kaminari.paginate_array(groups).page(params[:page]).per(5)
   end
 
+  def quizzes
+    @quizzes = current_user.quizzes
+  end
+
+  def questions
+    @questions = current_user.questions
+  end
+
   private
   def check_user_type
     unless current_user.user_type == "hr_manager"

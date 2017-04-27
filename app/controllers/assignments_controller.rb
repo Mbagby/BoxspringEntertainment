@@ -25,7 +25,7 @@ class AssignmentsController < ApplicationController
     params[:assignment][:groups_ids].each do |group_id|
       params[:assignment][:assignee_id] = group_id
       params[:assignment][:assignee_type] = "Group"
-      if !Assignment.group_assignments.map{|a| [ a.assignee_id, a.assignee_type, a.content_id , a.content_type] }.uniq.include?( [ params[:assignment][:assignee_id].to_i , params[:assignment][:assignee_type], params[:assignment][:content_id].to_i, params[:assignment][:content_type]]  )
+      if !Assignment.where(assignee_id: params_assignment['assignee_id'], assignee_type: params_assignment['assignee_type'], content_type: params_assignment['content_type'], content_id: params_assignment['content_id']).present?
         group_assignment = Assignment.new params_assignment
         group_assignment.save
       end
@@ -36,7 +36,7 @@ class AssignmentsController < ApplicationController
     params[:assignment][:employees_ids].each do |employee_id|
       params[:assignment][:assignee_id] = employee_id
       params[:assignment][:assignee_type] = "User"
-      if !Assignment.employee_assignments.map{|a| [ a.assignee_id, a.assignee_type, a.content_id , a.content_type] }.uniq.include?( [ params[:assignment][:assignee_id].to_i , params[:assignment][:assignee_type], params[:assignment][:content_id].to_i, params[:assignment][:content_type]]  )
+      if !Assignment.where(assignee_id: params_assignment['assignee_id'], assignee_type: params_assignment['assignee_type'], content_type: params_assignment['content_type'], content_id: params_assignment['content_id']).present?
         employee_assignment = Assignment.new params_assignment
         employee_assignment.save
       end

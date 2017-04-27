@@ -20,4 +20,10 @@ $(document).ready(function(){
     closeOnSelect: false,
     placeholder: "Select Employees"
   });  
+
+  $(".select2_question_search").select2({
+    tags: true,
+    closeOnSelect: false,
+    placeholder: "Select Employees"
+  });  
 });
