@@ -103,38 +103,34 @@
         %label alerts - messages - ad space
     .row.page-content
       .col-sm-12.mar-top-20
-        %h1.page-title Assign #{@quiz.name} questions:
+        %h1.page-title #{@quiz.name} :
     .clearfix
     .row.groups
       .col-sm-12{style:"margin-top:25px;"}
-        = form_for :quiz_questoins, :url => quiz_questions_categories_path do |f|
-          = f.hidden_field :quiz_id , value: @quiz.id
-          %table.table
-            %thead
+        = link_to "Add Questions", add_questions_hr_manager_quizzes_path(id: @quiz.id), class: "btn btn-default pull-right"
+        %table.table
+          %thead
+            %tr
+              %th Question
+              %th Options
+          -@quiz.questions.each_with_index do |question, i|
+            %tbody
               %tr
-                %th Select
-                %th Question
-                %th Options
-            -@questions.each_with_index do |question, i|
-              %tbody
-                %tr
-                  %td
-                    = f.check_box "question_id[#{i+1}]", {}, "#{question.id}"
-                  %td
-                    = question.question_text
-                  %td
-                    %table.table
-                      %thead
-                        %tr
-                          %th Option Name
-                          %th value
-                          %th is Answer
-                      - question.question_options.each do |q_o|
-                        %tr
-                          %td
-                            = q_o.option_name
-                          %td
-                            = q_o.value 
-                          %td
-                            =q_o.is_answer
-            = f.submit "Assign",  class: "btn btn-default"
+                %td
+                  = question.question_text
+                %td
+                  %table.table
+                    %thead
+                      %tr
+                        %th Option Name
+                        %th value
+                        %th is Answer
+                    - question.question_options.each do |q_o|
+                      %tr
+                        %td
+                          = q_o.option_name
+                        %td
+                          = q_o.value 
+                        %td
+                          =q_o.is_answer
+        

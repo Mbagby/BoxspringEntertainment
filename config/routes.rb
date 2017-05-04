@@ -74,12 +74,19 @@ Rails.application.routes.draw do
     resources :quizzes, only: [:new , :create, :show, :destroy] do
       collection do
         get :assign_questions
+        get :add_questions
       end
     end
     resources :questions, only: [:new , :create, :destroy]
   end
 
-  
+  namespace :employee, path: '' do
+     resources :take_quiz, only: [:take_a_quiz] do
+      collection do
+        get 'take_a_quiz' 
+      end
+    end
+  end
 
 
   get "/home/contact" => "home#contact"

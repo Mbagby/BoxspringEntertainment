@@ -32,6 +32,11 @@ class HrManager::QuizzesController < HrManager::BaseController
 
   def show
     @quiz = Quiz.find_by_id(params[:id])
+    #@questions = current_user.questions - @quiz.quiz_questions.map(&:question)
+  end
+
+  def add_questions
+    @quiz = Quiz.find_by_id(params[:id])
     @questions = current_user.questions - @quiz.quiz_questions.map(&:question)
   end
 

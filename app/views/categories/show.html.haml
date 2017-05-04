@@ -40,7 +40,7 @@
         .quizzes
           - @category.quizzes.each do |quiz|
             .col-md-2
-              = link_to quiz.name, quiz_questions_categories_path(quiz_id: quiz.id)
+              = link_to quiz.name, take_a_quiz_employee_take_quiz_index_path(quiz_id: quiz.id)
     .clearfix
 
     #convo

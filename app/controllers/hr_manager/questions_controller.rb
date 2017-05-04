@@ -10,7 +10,7 @@ class HrManager::QuestionsController < HrManager::BaseController
   end
 
   def create
-    category = Category.find(params[:question][:category_id]) rescue nil 
+    category = Category.find(params[:question][:category_id]) rescue nil
     if category.present?
       @question = category.questions.new(question_params)
       if @question.save
@@ -37,6 +37,6 @@ class HrManager::QuestionsController < HrManager::BaseController
   private
 
   def question_params
-    params.require(:question).permit(:question_text, :hr_manager_id, :question_options_attributes=> [:id, :option_name, :value, :is_answer,:_destroy])
+    params.require(:question).permit(:question_text, :hr_manager_id, :question_options_attributes=> [:id, :is_answer, :option_name, :value])
   end
 end

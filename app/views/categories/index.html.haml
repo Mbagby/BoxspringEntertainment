@@ -15,13 +15,13 @@
   %table.table
     %head
       %tr
-        %th Employee name
+        %th HR Manager Name
         %th Assignee
     - @employee_assignments.each do |employee_assignment|
       %tbody
         -if current_user.user_type == "employee" && employee_assignment.assignee == current_user
           %tr 
-            %td= employee_assignment.assignee.full_name
+            %td= employee_assignment.assignee.hr_manager.full_name
             -if employee_assignment.content_type == "Category"
               %td 
                 =link_to "#{employee_assignment.content.title} ( #{employee_assignment.content_type})",  category_path(employee_assignment.content)

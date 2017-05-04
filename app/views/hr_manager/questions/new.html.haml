@@ -27,9 +27,9 @@
                 .clearfix
               = f.fields_for :question_options do |ff|
                 .form-group.mar-top-20
-                  .col-md-2
-                    = ff.radio_button :is_answer, true 
-                    = label :is_answer, 'is_answer' 
+                  .col-md-2.radio_button
+                    = ff.radio_button :is_answer, true, class: 'option_is_true'
+                    = label :is_answer, 'is_answer'
                   .col-md-3
                     = ff.text_field  :option_name, :placeholder => "Option name", class: "form-control"
                   .col-md-3
@@ -40,4 +40,3 @@
               .form-group
                 .col-lg-offset-2.col-lg-10
                   = f.submit "Save", class: "btn btn-success"
-
