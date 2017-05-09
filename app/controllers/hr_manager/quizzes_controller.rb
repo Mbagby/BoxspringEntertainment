@@ -24,9 +24,12 @@ class HrManager::QuizzesController < HrManager::BaseController
   end
 
   def destroy
-    quiz = Quiz.find params[:id]
-    quiz.destroy
-    flash[:notice] = "Quiz deleted sucessfully!"
+    quiz = Quiz.where(id: params[:id]).first
+    if quiz.present? && quiz.destroy
+      flash[:notice] = "Quiz deleted sucessfully!"
+    else
+      flash[:alert] = "Quiz could not be deleted"  
+    end
     redirect_to :back
   end
 
@@ -41,7 +44,7 @@ class HrManager::QuizzesController < HrManager::BaseController
   end
 
   def assign_questions
-    quiz = Quiz.find(params[:quiz_id])
+    quiz = Quiz.where(params[:quiz_id]).first
     params[:question_ids].each do |question_id|
       quiz_question = quiz.quiz_questions.new(question_id: question_id) 
       quiz_question.save

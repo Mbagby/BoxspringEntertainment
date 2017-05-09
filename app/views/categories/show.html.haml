@@ -10,7 +10,7 @@
     .col-md-10.col-md-offset-1{style:"margin-top:-13%"}
       .row.episode-slick{style:"margin-left: -15px; margin-right: -15px;"}
         - @episodes.each do |episode|
-          - if episode.series_id == @season.series_id
+          - if episode.present? && @season.present? && (episode.series_id == @season.series_id)
             .col-md-3.col-sm-3.col-xs-3
               = link_to episode_path(episode), class: "episode-show-link" do
                 .episode-image

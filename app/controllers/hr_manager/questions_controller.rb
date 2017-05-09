@@ -25,8 +25,8 @@ class HrManager::QuestionsController < HrManager::BaseController
   end
 
   def destroy
-    question = Question.find(params[:id])
-    if question.destroy
+    question = Question.where(id: params[:id]).first
+    if question.present? && question.destroy
       flash[:notice] = "Question deleted sucessfully!"
     else
       flash[:error] = "Question can not removed."

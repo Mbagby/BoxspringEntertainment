@@ -9,5 +9,5 @@
       -Episode.all.each do |episode|
         .col-md-4.col-sm-6.episode-item
           = link_to episode_path(episode), class: "thumbnail" do
-            = image_tag episode.snap_shot.url
+            = image_tag(episode.snap_shot.url) if episode.snap_shot.url
             %label.episode-title= episode.title
