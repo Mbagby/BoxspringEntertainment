@@ -42,15 +42,8 @@ Rails.application.routes.draw do
     get :index
     get :forum
     get :videos
-
-    get :asset_libraries
-    post :upload_file
-    delete :destroy_file
-
     get :permission
     post :update_permission
-
-    get :groups
     get :quizzes
     get :questions
   end
@@ -60,15 +53,8 @@ Rails.application.routes.draw do
   #   root to: "devise/sessions#new"
   # end
 
-  resources :assignments, only: [:index, :new, :create] do
-    collection do
-      post :create_group_assignment
-      get :select_content
-    end 
-  end
-
   namespace :hr_manager, path: '' do
-    resources :groups, only: [:new, :create, :show, :destroy] do
+    resources :groups, except: [:edit, :update] do
       resources :group_employees, only: [:create, :destroy]
     end
     resources :quizzes, only: [:new , :create, :show, :destroy] do
@@ -78,12 +64,23 @@ Rails.application.routes.draw do
       end
     end
     resources :questions, only: [:new , :create, :destroy]
+    resources :asset_libraries, only: [:index] do
+      collection do
+        post :upload_file
+        delete :destroy_file
+      end
+    end
+    resources :assignments, only: [:index, :new, :create] do
+      collection do
+        get :select_content
+      end
+    end
   end
 
   namespace :employee, path: '' do
-     resources :take_quiz, only: [:take_a_quiz] do
+    resources :take_quiz, only: [] do
       collection do
-        get 'take_a_quiz' 
+        get 'take_a_quiz'
       end
     end
   end

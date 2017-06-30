@@ -1,13 +1,13 @@
 .dashboard-page
   .col-sm-3.side_nav
-    = render "left_side_dashboard"
+    = render "dashboard/left_side_dashboard"
   .col-sm-9
     .row
       .col-sm-12.content-header
         %label alerts - messages - ad space
     .row.assets_libraries-content
       %h3{style:"text-align:center;padding-top:20px;"} Asset Libraries
-      = form_tag dashboard_upload_file_path, multipart:true, class:"form-inline" do
+      = form_tag upload_file_hr_manager_asset_libraries_path, multipart:true, class:"form-inline" do
         .row
           .col-md-12
             .form-group
@@ -41,7 +41,7 @@
                     = link_to asset.category.id, category_path(asset.category) if asset.category.present?
                 %td.hidden-xs= asset.created_at.strftime("%b %dth %Y")
                 %td{style:"text-align:center;"}
-                  = link_to dashboard_destroy_file_path(id:asset.id), method: :delete, data:{confirm: "Are you sure"} do
+                  = link_to destroy_file_hr_manager_asset_libraries_path(id:asset.id), method: :delete, data:{confirm: "Are you sure"} do
                     %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
         = paginate @asset_libraries
         -# = will_paginate @asset_libraries, renderer: BootstrapPagination::Rails

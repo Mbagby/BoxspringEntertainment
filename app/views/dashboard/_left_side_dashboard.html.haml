@@ -19,7 +19,7 @@
   #panel3.panel.panel-default
     .panel-heading
       %h4.panel-title
-        %a{"data-target" => "#collapseThree", "data-toggle" => "collapse", :href => dashboard_groups_path, class: params[:action] == "groups" ? "" : "collapsed"}
+        %a{"data-target" => "#collapseThree", "data-toggle" => "collapse", :href => hr_manager_groups_path, class: (params[:controller] == "hr_manager/groups" && params[:action] == "index") ? "" : "collapsed"}
           %strong GROUPS
     #collapseThree.panel-collapse.collapse{class: params[:action] == "groups" ? "in" : ""}
       .panel-body Groups
@@ -40,7 +40,7 @@
   #panel6.panel.panel-default
     .panel-heading
       %h4.panel-title
-        %a{"data-target" => "#collapseSix", "data-toggle" => "collapse", :href => dashboard_asset_libraries_path, class: params[:action]=="asset_libraries" ? "" : "collapsed"}
+        %a{"data-target" => "#collapseSix", "data-toggle" => "collapse", :href => hr_manager_asset_libraries_path, class: params[:action]=="asset_libraries" ? "" : "collapsed"}
           %strong ASSETS LIBRARIES
     #collapseSix.panel-collapse.collapse{class: params[:action]=="asset_libraries" ? "in" : ""}
       .panel-body Assets Libraries

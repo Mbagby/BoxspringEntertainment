@@ -35,7 +35,7 @@ class HrManager::GroupEmployeesController < HrManager::BaseController
   private
   def find_group
     @group = Group.where(id: params[:group_id]).first
-    redirect_to dashboard_groups_path if @group.blank?
+    redirect_to hr_manager_groups_path if @group.blank?
   end
 
   def find_group_employee

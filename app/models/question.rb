@@ -5,6 +5,4 @@ class Question < ApplicationRecord
   has_many :quizzes, :through => :quiz_questions
   has_many :quiz_questions, dependent: :destroy
   accepts_nested_attributes_for :question_options
-
-
 end

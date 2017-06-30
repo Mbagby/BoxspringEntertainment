@@ -1,7 +1,4 @@
-class AssignmentsController < ApplicationController
-  before_action :authenticate_user!
-	before_action :check_user_type
-
+class HrManager::AssignmentsController < HrManager::BaseController
   def index
     @group_assignments = Assignment.group_assignments
     @employee_assignments = Assignment.employee_assignments
@@ -18,7 +15,7 @@ class AssignmentsController < ApplicationController
     create_group_assignment
     create_employee_assignment
     flash[:notice] = "Assignment created sucessfully."
-    redirect_to dashboard_groups_path
+    redirect_to hr_manager_groups_path
   end
 
   def create_group_assignment
@@ -58,17 +55,8 @@ class AssignmentsController < ApplicationController
     end
   end
 
-	private
-  	def check_user_type
-  		unless current_user.user_type == "hr_manager"
-  			flash[:notice] = "HR_Managers only can access assignments page"
-  			redirect_to root_path
-  		else
-  			true
-  		end
-  	end
-
-    def params_assignment
-      params.require(:assignment).permit(:assignee_id, :assignee_type, :content_type, :content_id, :hr_manager_id)
-    end
+  private
+  def params_assignment
+    params.require(:assignment).permit(:assignee_id, :assignee_type, :content_type, :content_id, :hr_manager_id)
+  end
 end

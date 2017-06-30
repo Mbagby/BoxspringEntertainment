@@ -1,6 +1,11 @@
 class HrManager::GroupsController < HrManager::BaseController
   before_action :find_group, only: [:show, :destroy]
 
+  def index
+    groups = current_user.groups
+    @groups = Kaminari.paginate_array(groups).page(params[:page]).per(5)
+  end
+
   def new
     @group = current_user.groups.new
   end
@@ -21,7 +26,7 @@ class HrManager::GroupsController < HrManager::BaseController
           group_employee = group.group_employees.create(employee_id: employee_id)
         end
       end
-      redirect_to dashboard_groups_path, notice: "Group created sucessfully."
+      redirect_to hr_manager_groups_path, notice: "Group created sucessfully."
     else
       render :new  
     end  
@@ -33,7 +38,7 @@ class HrManager::GroupsController < HrManager::BaseController
     else
       flash[:error] = "Group can not be removed."
     end
-    redirect_to dashboard_groups_path
+    redirect_to hr_manager_groups_path
   end
 
   private
@@ -44,6 +49,6 @@ class HrManager::GroupsController < HrManager::BaseController
 
   def find_group
     @group = Group.where(id: params[:id]).first
-    redirect_to dashboard_groups_path unless @group
+    redirect_to hr_manager_groups_path unless @group
   end
 end

@@ -21,31 +21,6 @@ class DashboardController < ApplicationController
     render json: {status: "success"}
   end
 
-  def asset_libraries
-    @asset_libraries = current_user.asset_libraries
-    @asset_libraries = Kaminari.paginate_array(@asset_libraries).page(params[:page]).per(5)
-    # @asset_libraries = current_user.asset_libraries.paginate(:page => params[:page], :per_page => 10)
-    # @asset_libraries = current_user.asset_libraries
-  end
-
-  # POST dashboard/upload_file
-  def upload_file
-    asset_library = current_user.asset_libraries.new(file:params[:file], category_id:params[:category])
-    asset_library.save
-    redirect_to dashboard_asset_libraries_path
-  end
-  # DELETE dashboard/destroy_file
-  def destroy_file
-    asset_library = current_user.asset_libraries.find(params[:id])
-    asset_library.destroy
-    redirect_to dashboard_asset_libraries_path
-  end
-
-  def groups
-    groups = current_user.groups
-    @groups = Kaminari.paginate_array(groups).page(params[:page]).per(5)
-  end
-
   def quizzes
     @quizzes = current_user.quizzes
   end

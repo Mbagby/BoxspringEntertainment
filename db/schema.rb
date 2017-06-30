@@ -240,6 +240,7 @@ ActiveRecord::Schema.define(version: 20170427061109) do
     t.integer  "hr_manager_id"
     t.integer  "content_id"
     t.string   "content_type"
+    t.text     "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

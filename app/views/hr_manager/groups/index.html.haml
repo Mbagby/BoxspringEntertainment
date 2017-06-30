@@ -1,6 +1,6 @@
 .dashboard-page
   .col-sm-3.side_nav
-    = render "left_side_dashboard"
+    = render "dashboard/left_side_dashboard"
   .col-sm-9.groups-page
     .row
       .col-sm-12.content-header
@@ -8,7 +8,7 @@
     .row.page-content
       .col-sm-12
         %h1.page-title Groups
-        = link_to 'Add Assignment', new_assignment_path, class: "pull-right btn btn-info"
+        = link_to 'Add Assignment', new_hr_manager_assignment_path, class: "pull-right btn btn-info"
         = link_to 'Create Group', new_hr_manager_group_path, class: 'btn btn-info pull-right'
     .clearfix
     .row.groups
