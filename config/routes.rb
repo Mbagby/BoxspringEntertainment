@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     post :update_permission
     get :quizzes
     get :questions
+    post :send_message
   end
   # resources :asset_libraries, only: [:index, :create, :delete]
   #

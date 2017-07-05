@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_user_type
+  before_action :check_user_type, except: [:send_message]
 
   def index
   end
@@ -28,6 +28,15 @@ class DashboardController < ApplicationController
   def questions
     @questions = current_user.questions
   end
+
+
+  def send_message 
+    @service = WatsonLayer::ApiCall.new
+    @message = @service.send_message(params[:message])
+    respond_to do |format|
+      format.js
+    end  
+  end  
 
   private
   def check_user_type

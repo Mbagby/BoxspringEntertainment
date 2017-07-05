@@ -1,0 +1,4 @@
+$('.chat_input').val('');
+setTimeout(function(){
+$('.msg_container_base').append("#{escape_javascript(render 'shared/message',:@message => @message)}");
+}, 1000);

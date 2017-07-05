@@ -1,0 +1,75 @@
+#chat_window_1.row.chat-window.col-xs-5.col-md-3{:style => "margin-left:10px;"}
+  .col-xs-12.col-md-12
+    .panel.panel-default
+      .panel-heading.top-bar
+        .col-md-6.col-xs-6
+          %h3.panel-title
+            %span.glyphicon.glyphicon-comment
+            Chat
+        .col-md-6.col-xs-6{:style => "text-align: right;"}
+          %a{:href => "#"}
+            %span#minim_chat_window.glyphicon.glyphicon-minus.icon_minim
+          %a{:href => "#"}
+            %span.glyphicon.glyphicon-remove.icon_close{"data-id" => "chat_window_1"}
+      .panel-body.msg_container_base
+        .row.msg_container.base_sent#sent
+          .col-md-2.col-xs-2.avatar
+            %img.img-responsive{:src => "http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg"}/
+          .col-md-10.col-xs-10
+            .messages.msg_sent#sent
+              %p
+                Hi, How can I help you?
+              %time{:datetime => DateTime.now} Default • 51 min
+          
+        
+      .panel-footer
+        .input-group
+          %input#btn-input.form-control.input-sm.chat_input{:placeholder => "Write your message here...", :type => "text"}/
+          %span.input-group-btn
+            %button#btn-chat.btn.btn-primary.btn-sm Send
+.btn-group.dropup
+  %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+    %span.glyphicon.glyphicon-cog
+    %span.sr-only Toggle Dropdown
+  %ul.dropdown-menu{:role => "menu"}
+    %li
+      %a#new_chat{:href => "#"}
+        %span.glyphicon.glyphicon-plus
+        Novo
+    %li
+      %a{:href => "#"}
+        %span.glyphicon.glyphicon-list
+        Ver outras
+    %li
+      %a{:href => "#"}
+        %span.glyphicon.glyphicon-remove
+        Fechar Tudo
+    %li.divider
+    %li
+      %a{:href => "#"}
+        %span.glyphicon.glyphicon-eye-close
+        Invisivel
+
+:javascript
+  $(document).on('click', '#btn-chat', function(){
+    var message = $('.chat_input').val();
+    var message_length = message.length;
+    if(message_length > 0){
+      $('.msg_container_base').append("#{escape_javascript(render partial: 'shared/message', :message => 'hi')}");  
+      $.ajax({
+        url: '/dashboard/send_message',
+        type: 'POST',
+        dataType: 'script',
+        data: {message: message},
+        success: function(response){
+
+        },
+        error: function(response){
+
+        }
+      })
+    }
+    else{
+      alert('Please enter text to chat');
+    }
+  });
