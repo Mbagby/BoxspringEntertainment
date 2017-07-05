@@ -50,7 +50,8 @@ gem 'heroku-deflater', '~> 0.6.3'
 
 # added by daiman
 gem 'inherited_resources', '~> 1.7'
-gem 'activeadmin', '1.0.0.pre5'
+gem 'activeadmin', '~>1.0.0.pre5'
+
 gem 'activemodel-serializers-xml'
 
 # Plus integrations with:
@@ -104,3 +105,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'rest-client'

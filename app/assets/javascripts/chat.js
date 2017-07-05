@@ -35,10 +35,10 @@ $(document).on('click', '#btn-chat', function(){
   var message = $('.chat_input').val();
   var message_length = message.length;
   if(message_length > 0){
-    var clone = $('.base_sent').clone();
+    var clone = $('.msg_container_base').children('.base_sent').last().clone();
     $('.msg_p',clone).html(message);
-    $('.msg_container_base').append(clone);  
-    $('.chat_input').val('');
+    $('.msg_container_base').append(clone); 
+    $('.chat_input').val(''); 
     $.ajax({
       url: '/dashboard/send_message',
       type: 'POST',
