@@ -31,3 +31,28 @@ $(document).on('click', '.icon_close', function (e) {
   $( "#chat_window_1" ).remove();
 });
 
+$(document).on('click', '#btn-chat', function(){
+  var message = $('.chat_input').val();
+  var message_length = message.length;
+  if(message_length > 0){
+    var clone = $('.base_sent').clone();
+    $('.msg_p',clone).html(message);
+    $('.msg_container_base').append(clone);  
+    $('.chat_input').val('');
+    $.ajax({
+      url: '/dashboard/send_message',
+      type: 'POST',
+      dataType: 'script',
+      data: {message: message},
+      success: function(response){
+
+      },
+      error: function(response){
+
+      }
+    })
+  }
+  else{
+    alert('Please enter text to chat');
+  }
+});
